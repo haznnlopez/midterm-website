@@ -1,0 +1,643 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Beats - Amir Lopez</title>
+
+    <link rel="icon" type="image/png" href="images/hero/logo.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="design.css" />
+
+    <style>
+      /* Page Specific Styles */
+      .content-wrapper {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px 80px;
+      }
+
+      .page-header {
+        text-align: center;
+        padding: 60px 20px 60px;
+        scroll-margin-top: 100px;
+      }
+
+      .page-title {
+        font-family: var(--font-heading);
+        color: var(--accent-orange);
+        font-size: 3.5rem;
+        line-height: 1;
+        margin-bottom: 10px;
+      }
+
+      .page-subtitle {
+        color: var(--text-grey);
+        font-size: 1.1rem;
+        text-align: center;
+      }
+
+      /* Genre Sections */
+      .genre-section {
+        margin-bottom: 80px;
+      }
+
+      .genre-title {
+        font-family: var(--font-heading);
+        font-size: 2rem;
+        color: var(--text-white);
+        margin-bottom: 30px;
+        border-bottom: 2px solid var(--accent-orange);
+        display: inline-block;
+        padding-bottom: 5px;
+        scroll-margin-top: 120px;
+      }
+
+      .music-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 30px;
+      }
+
+      .music-card {
+        background-color: var(--bg-card);
+        border: 1px solid #333;
+        border-radius: 15px;
+        overflow: hidden;
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .music-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+        border-color: var(--accent-orange);
+      }
+
+      .card-visual {
+        position: relative;
+        height: 200px;
+        overflow: hidden;
+      }
+
+      .card-visual img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .music-card:hover .card-visual img {
+        transform: scale(1.05);
+      }
+
+      .card-content {
+        padding: 20px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .song-title {
+        font-family: var(--font-heading);
+        font-size: 1.5rem;
+        color: var(--text-white);
+        margin-bottom: 5px;
+        line-height: 1.2;
+      }
+
+      .artist-name {
+        color: var(--accent-orange);
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 0.85rem;
+        letter-spacing: 1px;
+        margin-bottom: 15px;
+      }
+
+      .song-desc {
+        font-size: 0.9rem;
+        color: var(--text-grey);
+        margin-bottom: 20px;
+        line-height: 1.5;
+        flex-grow: 1;
+      }
+
+      .card-content audio {
+        width: 100%;
+        margin-bottom: 15px;
+        height: 40px;
+      }
+
+      .embed-container {
+        margin-top: auto;
+        border-radius: 12px;
+        overflow: hidden;
+        background: #000;
+      }
+
+      iframe {
+        width: 100%;
+        height: 80px;
+        border: none;
+      }
+
+      .vid-embed-container {
+        margin-top: auto;
+        margin-bottom: 10px;
+        border-radius: 12px;
+        overflow: hidden;
+        background: #000;
+        position: relative;
+        padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+        height: 0;
+      }
+
+      .vid-embed-container video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="profile-brand">
+        <img
+          src="images/hero/profile-img.png"
+          alt="Profile"
+          class="profile-pic-small"
+        />
+        <div class="brand-text">
+          <h3>Profile</h3>
+          <span>Amir Jo-hanz Lopez</span>
+        </div>
+      </div>
+
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li class="dropdown-parent">
+            <input type="checkbox" id="stories-toggle" />
+            <label for="stories-toggle" class="menu-link"> Stories ▾ </label>
+            <ul class="dropdown-menu">
+              <li><a href="biography.html">Biography</a></li>
+              <li><a href="blog1.html">Blog Story 1</a></li>
+              <li><a href="blog2.html">Blog Story 2</a></li>
+              <li><a href="blog3.html">Blog Story 3</a></li>
+            </ul>
+          </li>
+          <li class="dropdown-parent">
+            <input type="checkbox" id="dream-toggle" />
+            <label for="dream-toggle" class="menu-link"> Dreams ▾ </label>
+            <ul class="dropdown-menu">
+              <li><a href="dreamplaces.html">Dream Places</a></li>
+              <li><a href="bucketlist.html">Bucket List</a></li>
+            </ul>
+          </li>
+          <li class="dropdown-parent">
+            <input type="checkbox" id="media-toggle" />
+            <label
+              for="media-toggle"
+              class="menu-link"
+              style="background: var(--accent-orange); color: white"
+            >
+              Media ▾
+            </label>
+            <ul class="dropdown-menu">
+              <li><a href="gallery.html">Photos</a></li>
+              <li><a href="music.html" class="active">✦ My Beats</a></li>
+              <li><a href="movies.html">My Movies</a></li>
+              <li><a href="series.html">My Series</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="content-wrapper">
+      <div id="top" class="page-header">
+        <h1 class="page-title">My Beats</h1>
+        <p class="page-subtitle">
+          The soundtrack of my life, categorized by genre.
+        </p>
+      </div>
+
+      <!-- GENRE 1: POP & R&B -->
+      <section class="genre-section">
+        <h2 class="genre-title" id="cat1">Pop & R&B Faves</h2>
+        <div class="music-grid">
+          <!-- Item 1 -->
+          <article class="music-card">
+            <div class="card-visual">
+              <img src="images/media/song1.jpg" alt="Ariana Eternal Sunshine" />
+            </div>
+            <div class="card-content">
+              <h3 class="song-title">intro (end of the world) - extended</h3>
+              <p class="artist-name">Ariana Grande</p>
+              <p class="song-desc">
+                A track from <i>Eternal Sunshine</i> that perfectly captures the
+                bittersweet feeling of a relationship ending. The extended
+                version adds even more emotional depth.
+              </p>
+              <div class="vid-embed-container">
+                <video
+                  width="560"
+                  height="315"
+                  src="videos/vid1.mp4"
+                  title="Ariana Grande - intro(end of the world)"
+                  controls
+                  playsinline
+                ></video>
+              </div>
+
+              <div class="embed-container">
+                <iframe
+                  data-testid="embed-iframe"
+                  style="border-radius: 12px"
+                  src="https://open.spotify.com/embed/track/5BBkvXH2jYROUzKIB7WX7S?utm_source=generator"
+                  width="100%"
+                  height="352"
+                  frameborder="0"
+                  allowfullscreen=""
+                  allow="
+                    autoplay;
+                    clipboard-write;
+                    encrypted-media;
+                    fullscreen;
+                    picture-in-picture;
+                  "
+                  loading="lazy"
+                ></iframe>
+              </div>
+            </div>
+          </article>
+
+          <!-- Item 2 -->
+          <article class="music-card">
+            <div class="card-visual">
+              <img
+                src="images/media/song2.jpg"
+                alt="Sabrina Man's Best Friend"
+              />
+            </div>
+            <div class="card-content">
+              <h3 class="song-title">House Tour</h3>
+              <p class="artist-name">Sabrina Carpenter</p>
+              <p class="song-desc">
+                A personal favorite from Sabrina's
+                <i>Man's Best Friend</i> album. Its naughty and catchy lyrics
+                coupled with the amazing melody and beat makes it very dancey
+                and fun.
+              </p>
+              <div class="vid-embed-container">
+                <video
+                  width="560"
+                  height="315"
+                  src="videos/vid2.mp4"
+                  title="Sabrina Carpenter - House Tour"
+                  controls
+                  playsinline
+                ></video>
+              </div>
+
+              <div class="embed-container">
+                <iframe
+                  data-testid="embed-iframe"
+                  style="border-radius: 12px"
+                  src="https://open.spotify.com/embed/track/25jgQBxuUkGDdCG1WGKKN9?utm_source=generator"
+                  width="100%"
+                  height="352"
+                  frameborder="0"
+                  allowfullscreen=""
+                  allow="
+                    autoplay;
+                    clipboard-write;
+                    encrypted-media;
+                    fullscreen;
+                    picture-in-picture;
+                  "
+                  loading="lazy"
+                ></iframe>
+              </div>
+            </div>
+          </article>
+
+          <!-- Item 3 -->
+          <article class="music-card">
+            <div class="card-visual">
+              <img src="images/media/song3.jpg" alt="SZA SOS Deluxe" />
+            </div>
+            <div class="card-content">
+              <h3 class="song-title">Snooze</h3>
+              <p class="artist-name">SZA</p>
+              <p class="song-desc">
+                Smooth vocals and a chill beat. Perfect for relaxing after a
+                long day at school.
+              </p>
+              <div class="vid-embed-container">
+                <video
+                  width="560"
+                  height="315"
+                  src="videos/vid3.mp4"
+                  title="SZA - Snooze"
+                  controls
+                  playsinline
+                ></video>
+              </div>
+
+              <div class="embed-container">
+                <iframe
+                  data-testid="embed-iframe"
+                  style="border-radius: 12px"
+                  src="https://open.spotify.com/embed/track/75on2JOaUTVhYyCKrNNClY?utm_source=generator"
+                  width="100%"
+                  height="352"
+                  frameborder="0"
+                  allowfullscreen=""
+                  allow="
+                    autoplay;
+                    clipboard-write;
+                    encrypted-media;
+                    fullscreen;
+                    picture-in-picture;
+                  "
+                  loading="lazy"
+                ></iframe>
+              </div>
+            </div>
+          </article>
+
+          <article class="music-card">
+            <div class="card-visual">
+              <img src="images/media/song4.jpg" alt="KATSEYE Gnarly" />
+            </div>
+            <div class="card-content">
+              <h3 class="song-title">Gnarly</h3>
+              <p class="artist-name">KATSEYE</p>
+              <p class="song-desc">
+                A dancey and high energy beat that makes you stand up and move.
+                The perfect hype song for getting ready to go out or just
+                jamming in your room.
+              </p>
+              <div class="vid-embed-container">
+                <video
+                  width="560"
+                  height="315"
+                  src="videos/vid4.mp4"
+                  title="KATSEYE - Gnarly"
+                  controls
+                  playsinline
+                ></video>
+              </div>
+
+              <div class="embed-container">
+                <iframe
+                  data-testid="embed-iframe"
+                  style="border-radius: 12px"
+                  src="https://open.spotify.com/embed/track/794MnAJvd8c84vWQxdFLAN?utm_source=generator"
+                  width="100%"
+                  height="352"
+                  frameborder="0"
+                  allowfullscreen=""
+                  allow="
+                    autoplay;
+                    clipboard-write;
+                    encrypted-media;
+                    fullscreen;
+                    picture-in-picture;
+                  "
+                  loading="lazy"
+                ></iframe>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- GENRE 2: K-POP -->
+      <section class="genre-section">
+        <h2 class="genre-title" id="cat2">K-Pop Jams</h2>
+        <div class="music-grid">
+          <!-- Item 1 -->
+          <article class="music-card">
+            <div class="card-visual">
+              <img src="images/media/song5.jpg" alt="NewJeans Ditto" />
+            </div>
+            <div class="card-content">
+              <h3 class="song-title">Ditto</h3>
+              <p class="artist-name">NewJeans</p>
+              <p class="song-desc">
+                The nostalgic winter vibe of this song is unmatched. It has been
+                on repeat since it dropped.
+              </p>
+              <div class="vid-embed-container">
+                <video
+                  width="560"
+                  height="315"
+                  src="videos/vid5.mp4"
+                  title="NewJeans - Ditto"
+                  controls
+                  playsinline
+                ></video>
+              </div>
+
+              <div class="embed-container">
+                <iframe
+                  data-testid="embed-iframe"
+                  style="border-radius: 12px"
+                  src="https://open.spotify.com/embed/track/3r8RuvgbX9s7ammBn07D3W?utm_source=generator"
+                  width="100%"
+                  height="352"
+                  frameborder="0"
+                  allowfullscreen=""
+                  allow="
+                    autoplay;
+                    clipboard-write;
+                    encrypted-media;
+                    fullscreen;
+                    picture-in-picture;
+                  "
+                  loading="lazy"
+                ></iframe>
+              </div>
+            </div>
+          </article>
+
+          <!-- Item 2 -->
+          <article class="music-card">
+            <div class="card-visual">
+              <img src="images/media/song6.jpg" alt="TWICE Feel Special" />
+            </div>
+            <div class="card-content">
+              <h3 class="song-title">Feel Special</h3>
+              <p class="artist-name">TWICE</p>
+              <p class="song-desc">
+                The start of TWICE's transition from cute concepts to more
+                mature ones. The lyrics are so empowering and uplifting, and the
+                beat is just so catchy.
+              </p>
+              <div class="vid-embed-container">
+                <video
+                  width="560"
+                  height="315"
+                  src="videos/vid6.mp4"
+                  title="TWICE - Feel Special"
+                  controls
+                  playsinline
+                ></video>
+              </div>
+
+              <div class="embed-container">
+                <iframe
+                  data-testid="embed-iframe"
+                  style="border-radius: 12px"
+                  src="https://open.spotify.com/embed/track/3Hz3tTQwOdM6XkA0ALB2G9?utm_source=generator"
+                  width="100%"
+                  height="352"
+                  frameborder="0"
+                  allowfullscreen=""
+                  allow="
+                    autoplay;
+                    clipboard-write;
+                    encrypted-media;
+                    fullscreen;
+                    picture-in-picture;
+                  "
+                  loading="lazy"
+                ></iframe>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- GENRE 3: OPM / Local -->
+      <section class="genre-section">
+        <h2 class="genre-title" id="cat3">OPM Classics</h2>
+        <div class="music-grid">
+          <!-- Item 1 -->
+          <article class="music-card">
+            <div class="card-visual">
+              <img src="images/media/song7.jpg" alt="OPM Guitar" />
+            </div>
+            <div class="card-content">
+              <h3 class="song-title">Yakap</h3>
+              <p class="artist-name">Alex Bruce</p>
+              <p class="song-desc">
+                A heartfelt ballad with bits of rap that always gives me the
+                warm and fuzzies. The lyrics about finding comfort in someone's
+                embrace are so relatable, and the melody is just beautiful.
+              </p>
+              <div class="vid-embed-container">
+                <video
+                  width="560"
+                  height="315"
+                  src="videos/vid7.mp4"
+                  title="Alex Bruce - Yakap"
+                  controls
+                  playsinline
+                ></video>
+              </div>
+
+              <div class="embed-container">
+                <iframe
+                  data-testid="embed-iframe"
+                  style="border-radius: 12px"
+                  src="https://open.spotify.com/embed/track/4cO62W6CErGU4vrDWF1Ruj?utm_source=generator"
+                  width="100%"
+                  height="352"
+                  frameborder="0"
+                  allowfullscreen=""
+                  allow="
+                    autoplay;
+                    clipboard-write;
+                    encrypted-media;
+                    fullscreen;
+                    picture-in-picture;
+                  "
+                  loading="lazy"
+                ></iframe>
+              </div>
+            </div>
+          </article>
+
+          <!-- Item 2 -->
+          <article class="music-card">
+            <div class="card-visual">
+              <img src="images/media/song8.jpg" alt="Denise Julia" />
+            </div>
+            <div class="card-content">
+              <h3 class="song-title">butterflies (2 a.m. Version)</h3>
+              <p class="artist-name">Denise Julia</p>
+              <p class="song-desc">
+                The acoustic version of this song is so soothing and calming. It
+                gives off such a cozy vibe, perfect for late night listening.
+              </p>
+              <div class="vid-embed-container">
+                <video
+                  width="560"
+                  height="315"
+                  src="videos/vid8.mp4"
+                  title="Denise Julia - butterflies (2 a.m. version)"
+                  controls
+                  playsinline
+                ></video>
+              </div>
+
+              <div class="embed-container">
+                <iframe
+                  data-testid="embed-iframe"
+                  style="border-radius: 12px"
+                  src="https://open.spotify.com/embed/track/0jnNvnfjl9uPm21b0Latjl?utm_source=generator"
+                  width="100%"
+                  height="352"
+                  frameborder="0"
+                  allowfullscreen=""
+                  allow="
+                    autoplay;
+                    clipboard-write;
+                    encrypted-media;
+                    fullscreen;
+                    picture-in-picture;
+                  "
+                  loading="lazy"
+                ></iframe>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <nav class="side-anchors">
+      <a href="#top">
+        <img src="images/buttons/topbtn.png" alt="Top" />
+        <span>Back to Top</span>
+      </a>
+      <a href="#cat1">
+        <span>Pop & R&B Faves</span>
+      </a>
+      <a href="#cat2">
+        <span>K-Pop Jams</span>
+      </a>
+      <a href="#cat3">
+        <span>OPM Classics</span>
+      </a>
+    </nav>
+    <footer>&copy; 2026 Amir Lopez. All Rights Reserved.</footer>
+  </body>
+</html>

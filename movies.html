@@ -1,0 +1,643 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Movies - Amir Lopez</title>
+
+    <link rel="icon" type="image/png" href="images/hero/logo.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="design.css" />
+
+    <style>
+      /* Page Specific Styles (Adapted from Music Page) */
+      .content-wrapper {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px 80px;
+      }
+
+      .page-header {
+        text-align: center;
+        padding: 60px 20px 60px;
+        scroll-margin-top: 100px;
+      }
+
+      .page-title {
+        font-family: var(--font-heading);
+        color: var(--accent-orange);
+        font-size: 3.5rem;
+        line-height: 1;
+        margin-bottom: 10px;
+      }
+
+      .page-subtitle {
+        color: var(--text-grey);
+        font-size: 1.1rem;
+        text-align: center;
+      }
+
+      /* Genre Sections */
+      .genre-section {
+        margin-bottom: 80px;
+      }
+
+      .genre-title {
+        font-family: var(--font-heading);
+        font-size: 2rem;
+        color: var(--text-white);
+        margin-bottom: 30px;
+        border-bottom: 2px solid var(--accent-orange);
+        display: inline-block;
+        padding-bottom: 5px;
+        scroll-margin-top: 120px;
+      }
+
+      .movie-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 30px;
+      }
+
+      .movie-card {
+        background-color: var(--bg-card);
+        border: 1px solid #333;
+        border-radius: 15px;
+        overflow: hidden;
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .movie-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+        border-color: var(--accent-orange);
+      }
+
+      .card-visual {
+        position: relative;
+        height: 250px; /* Taller for movie posters */
+        overflow: hidden;
+      }
+
+      .card-visual img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top; /* Focus on faces/top of poster */
+        transition: transform 0.5s ease;
+      }
+
+      .movie-card:hover .card-visual img {
+        transform: scale(1.05);
+      }
+
+      .card-content {
+        padding: 20px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .movie-title {
+        font-family: var(--font-heading);
+        font-size: 1.5rem;
+        color: var(--text-white);
+        margin-bottom: 5px;
+        line-height: 1.2;
+      }
+
+      .movie-meta {
+        color: var(--accent-orange);
+        font-size: 0.8rem;
+        margin-bottom: 15px;
+        line-height: 1.4;
+      }
+
+      .movie-meta span {
+        color: var(--text-grey);
+        font-weight: 400;
+      }
+
+      .movie-synopsis {
+        font-size: 0.9rem;
+        color: var(--text-grey);
+        margin-bottom: 20px;
+        line-height: 1.5;
+        flex-grow: 1;
+      }
+
+      .embed-container {
+        margin-top: auto;
+        border-radius: 12px;
+        overflow: hidden;
+        background: #000;
+        position: relative;
+        padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+        height: 0;
+      }
+
+      .embed-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="profile-brand">
+        <img
+          src="images/hero/profile-img.png"
+          alt="Profile"
+          class="profile-pic-small"
+        />
+        <div class="brand-text">
+          <h3>Profile</h3>
+          <span>Amir Jo-hanz Lopez</span>
+        </div>
+      </div>
+
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li class="dropdown-parent">
+            <input type="checkbox" id="stories-toggle" />
+            <label for="stories-toggle" class="menu-link"> Stories ▾ </label>
+            <ul class="dropdown-menu">
+              <li><a href="biography.html">Biography</a></li>
+              <li><a href="blog1.html">Blog Story 1</a></li>
+              <li><a href="blog2.html">Blog Story 2</a></li>
+              <li><a href="blog3.html">Blog Story 3</a></li>
+            </ul>
+          </li>
+          <li class="dropdown-parent">
+            <input type="checkbox" id="dream-toggle" />
+            <label for="dream-toggle" class="menu-link"> Dreams ▾ </label>
+            <ul class="dropdown-menu">
+              <li><a href="dreamplaces.html">Dream Places</a></li>
+              <li><a href="bucketlist.html">Bucket List</a></li>
+            </ul>
+          </li>
+          <li class="dropdown-parent">
+            <input type="checkbox" id="media-toggle" />
+            <label
+              for="media-toggle"
+              class="menu-link"
+              style="background: var(--accent-orange); color: white"
+            >
+              Media ▾
+            </label>
+            <ul class="dropdown-menu">
+              <li><a href="gallery.html">Photos</a></li>
+              <li><a href="music.html">My Beats</a></li>
+              <li><a href="movies.html" class="active">✦ My Movies</a></li>
+              <li><a href="series.html">My Series</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="content-wrapper">
+      <div id="top" class="page-header">
+        <h1 class="page-title">My Film Movies</h1>
+        <p class="page-subtitle">
+          Stories that moved me, made me laugh, and changed my perspective.
+        </p>
+      </div>
+
+      <!-- GENRE 1: ROMANCE & DRAMA -->
+      <section class="genre-section">
+        <h2 class="genre-title" id="cat1">Romance & Drama</h2>
+        <div class="movie-grid">
+          <!-- Movie 1 -->
+          <article class="movie-card">
+            <div class="card-visual">
+              <img src="images/media/movie1.jpg" alt="Rewind Poster" />
+            </div>
+            <div class="card-content">
+              <h3 class="movie-title">Rewind</h3>
+              <div class="movie-meta">
+                <strong>Director:</strong> <span>Mae Cruz-Alviar</span><br />
+                <strong>Stars:</strong>
+                <span>Marian Rivera, Dingdong Dantes</span>
+              </div>
+              <p class="movie-synopsis">
+                Mary loves John her entire life. After years of marriage, John's
+                priorities change, straining their relationship and leading to a
+                tragic accident that takes Mary's life. An extraordinary
+                proposition allows John to rewind time.
+              </p>
+              <div class="embed-container">
+                <iframe
+                  width="560"
+                  height="315"
+                  src="https://www.youtube.com/embed/_31Tod1VvLM?si=N6JVELIAi9ZT_3Ci"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="
+                    accelerometer;
+                    autoplay;
+                    clipboard-write;
+                    encrypted-media;
+                    gyroscope;
+                    picture-in-picture;
+                    web-share;
+                  "
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </div>
+          </article>
+
+          <!-- Movie 2 -->
+          <article class="movie-card">
+            <div class="card-visual">
+              <img src="images/media/movie2.jpg" alt="Die Beautiful Poster" />
+            </div>
+            <div class="card-content">
+              <h3 class="movie-title">Die Beautiful</h3>
+              <div class="movie-meta">
+                <strong>Director:</strong> <span> Jun Robles Lana</span><br />
+                <strong>Stars:</strong>
+                <span>Paolo Ballesteros</span>
+              </div>
+              <p class="movie-synopsis">
+                Friends attend the wake of Trisha, a Filipino transgender woman.
+                They look back into her life and how she faced the adversities
+                and triumphs of living as a transgender in Filipino society.
+              </p>
+              <div class="embed-container">
+                <iframe
+                  width="560"
+                  height="315"
+                  src="https://www.youtube.com/embed/FJ0ERN2rZ7g?si=5mrICSQSUmjCTwMI"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="
+                    accelerometer;
+                    autoplay;
+                    clipboard-write;
+                    encrypted-media;
+                    gyroscope;
+                    picture-in-picture;
+                    web-share;
+                  "
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </div>
+          </article>
+
+          <!-- Movie 3 -->
+          <article class="movie-card">
+            <div class="card-visual">
+              <img src="images/media/movie3.jpg" alt="Seven Sundays Poster" />
+            </div>
+            <div class="card-content">
+              <h3 class="movie-title">Seven Sundays</h3>
+              <div class="movie-meta">
+                <strong>Director:</strong> <span> Cathy Garcia-Sampana</span
+                ><br />
+                <strong>Stars:</strong>
+                <span
+                  >Ronaldo Valdez, Aga Muhlach Dingdong Dantes Enrique Gil,
+                  Cristine Reyes</span
+                >
+              </div>
+              <p class="movie-synopsis">
+                The Bonifacio siblings reunite when they learn that their father
+                has been diagnosed with cancer. In the process, they must deal
+                with their unresolved issues before it's too late.
+              </p>
+              <div class="embed-container">
+                <iframe
+                  width="560"
+                  height="315"
+                  src="https://www.youtube.com/embed/BMUhYuKN4eo?si=9pv8lxPpant7S7UX"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="
+                    accelerometer;
+                    autoplay;
+                    clipboard-write;
+                    encrypted-media;
+                    gyroscope;
+                    picture-in-picture;
+                    web-share;
+                  "
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- GENRE 2: COMEDY -->
+      <section class="genre-section">
+        <h2 class="genre-title" id="cat2">Comedy Classics</h2>
+        <div class="movie-grid">
+          <!-- Movie 1 -->
+          <article class="movie-card">
+            <div class="card-visual">
+              <img
+                src="images/media/movie4.jpg"
+                alt="Girl, Boy, Bakla, Tomboy Poster"
+              />
+            </div>
+            <div class="card-content">
+              <h3 class="movie-title">Girl, Boy, Bakla, Tomboy</h3>
+              <div class="movie-meta">
+                <strong>Director:</strong> <span>Wenn V. Deramas</span><br />
+                <strong>Stars:</strong> <span>Vice Ganda</span>
+              </div>
+              <p class="movie-synopsis">
+                The quadruplets are united again when one of them needs a liver
+                transplant, but resentment about their separation threatens
+                their reunion.
+              </p>
+              <div class="embed-container">
+                <iframe
+                  width="560"
+                  height="315"
+                  src="https://www.youtube.com/embed/P7mAsauoYJQ?si=PAte84hqek5wwLOY"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="
+                    accelerometer;
+                    autoplay;
+                    clipboard-write;
+                    encrypted-media;
+                    gyroscope;
+                    picture-in-picture;
+                    web-share;
+                  "
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </div>
+          </article>
+
+          <!-- Movie 2 -->
+          <article class="movie-card">
+            <div class="card-visual">
+              <img
+                src="images/media/movie5.jpg"
+                alt="Kontrabida Academy Poster"
+              />
+            </div>
+            <div class="card-content">
+              <h3 class="movie-title">Kontrabida Academy</h3>
+              <div class="movie-meta">
+                <strong>Director:</strong> <span>Chris Martinez</span><br />
+                <strong>Stars:</strong>
+                <span>Eugene Domingo, Barbie Forteza</span>
+              </div>
+              <p class="movie-synopsis">
+                When a mysterious TV transports her to a school for on-screen
+                villains, a restaurant worker finds new purpose - and a way to
+                get back at her enemies.
+              </p>
+              <div class="embed-container">
+                <iframe
+                  width="560"
+                  height="315"
+                  src="https://www.youtube.com/embed/pZS4h8cYOWQ?si=yDsm5ulE-HBzr4w1"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="
+                    accelerometer;
+                    autoplay;
+                    clipboard-write;
+                    encrypted-media;
+                    gyroscope;
+                    picture-in-picture;
+                    web-share;
+                  "
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </div>
+          </article>
+
+          <!-- Movie 3 -->
+          <article class="movie-card">
+            <div class="card-visual">
+              <img src="images/media/movie6.jpg" alt="The Gifted Poster" />
+            </div>
+            <div class="card-content">
+              <h3 class="movie-title">The Gifted</h3>
+              <div class="movie-meta">
+                <strong>Director:</strong> <span> Chris Martinez</span><br />
+                <strong>Stars:</strong>
+                <span>Anne Curtis, Christine Reyes, Sam Milby</span>
+              </div>
+              <p class="movie-synopsis">
+                Childhood best friends who are both geniuses in school
+                eventually become bittersweet rivals for campus athlete Mark
+                Ferrer. Zoe Tuazon is a rich, overweight and aggressive mestiza;
+                Aica Tabayoyong is a poor, nerdy, nearsighted student with a bad
+                case of teenage acne. In an effort to outsmart and outclass each
+                other, Zoe and Aica each undergo cosmetic surgery and become
+                ravishing vixens engaged in ugly confrontations.
+              </p>
+              <div class="embed-container">
+                <iframe
+                  width="560"
+                  height="315"
+                  src="https://www.youtube.com/embed/I_mawWTiv0k?si=V_C994DgdWLaRqK8"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="
+                    accelerometer;
+                    autoplay;
+                    clipboard-write;
+                    encrypted-media;
+                    gyroscope;
+                    picture-in-picture;
+                    web-share;
+                  "
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- GENRE 3: SCI-FI / THRILLER -->
+      <section class="genre-section">
+        <h2 class="genre-title" id="cat3">Fantasy & Thriller</h2>
+        <div class="movie-grid">
+          <!-- Movie 1 -->
+          <article class="movie-card">
+            <div class="card-visual">
+              <img
+                src="images/media/movie7.jpg"
+                alt="Wicked: For Good Poster"
+              />
+            </div>
+            <div class="card-content">
+              <h3 class="movie-title">Wicked: For Good</h3>
+              <div class="movie-meta">
+                <strong>Directors:</strong> <span>Jon M. Chu</span><br />
+                <strong>Stars:</strong>
+                <span>Cynthia Erivo, Ariana Grande</span>
+              </div>
+              <p class="movie-synopsis">
+                Elphaba, the future Wicked Witch of the West and her
+                relationship with Glinda, the Good Witch of the North. The
+                second of a two-part feature film adaptation of the Broadway
+                musical.
+              </p>
+              <div class="embed-container">
+                <iframe
+                  width="560"
+                  height="315"
+                  src="https://www.youtube.com/embed/vt98AlBDI9Y?si=eHLt4cU74ST2NTQ3"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="
+                    accelerometer;
+                    autoplay;
+                    clipboard-write;
+                    encrypted-media;
+                    gyroscope;
+                    picture-in-picture;
+                    web-share;
+                  "
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </div>
+          </article>
+
+          <!-- Movie 2 -->
+          <article class="movie-card">
+            <div class="card-visual">
+              <img
+                src="images/media/movie8.jpg"
+                alt="The Book of Life Poster"
+              />
+            </div>
+            <div class="card-content">
+              <h3 class="movie-title">The Book of Life</h3>
+              <div class="movie-meta">
+                <strong>Director:</strong> <span>Jorge R. Gutiérrez</span><br />
+                <strong>Stars:</strong>
+                <span>Diego Luna, Zoe Saldaña, Channing Tatum</span>
+              </div>
+              <p class="movie-synopsis">
+                Manolo, a young man who is torn between fulfilling the
+                expectations of his family and following his heart, embarks on
+                an adventure that spans three fantastic worlds where he must
+                face his greatest fears.
+              </p>
+              <div class="embed-container">
+                <iframe
+                  width="560"
+                  height="315"
+                  src="https://www.youtube.com/embed/_i69CJc1BgE?si=iVqwb_ZDEwMup1IR"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="
+                    accelerometer;
+                    autoplay;
+                    clipboard-write;
+                    encrypted-media;
+                    gyroscope;
+                    picture-in-picture;
+                    web-share;
+                  "
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </div>
+          </article>
+
+          <!-- Movie 3 -->
+          <article class="movie-card">
+            <div class="card-visual">
+              <img src="images/media/movie9.jpg" alt="Searching Poster" />
+            </div>
+            <div class="card-content">
+              <h3 class="movie-title">Searching</h3>
+              <div class="movie-meta">
+                <strong>Director:</strong> <span>Aneesh Chaganty</span><br />
+                <strong>Stars:</strong>
+                <span>John Cho, Debra Messing, Joseph Lee</span>
+              </div>
+              <p class="movie-synopsis">
+                After his teenage daughter goes missing, a desperate father
+                tries to find clues on her laptop.After his teenage daughter
+                goes missing, a desperate father tries to find clues on her
+                laptop.
+              </p>
+              <div class="embed-container">
+                <iframe
+                  width="560"
+                  height="315"
+                  src="https://www.youtube.com/embed/3Ro9ebQxEOY?si=PS79aOSRtavF_wZD"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="
+                    accelerometer;
+                    autoplay;
+                    clipboard-write;
+                    encrypted-media;
+                    gyroscope;
+                    picture-in-picture;
+                    web-share;
+                  "
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <nav class="side-anchors">
+      <a href="#top">
+        <img src="images/buttons/topbtn.png" alt="Top" />
+        <span>Back to Top</span>
+      </a>
+      <a href="#cat1">
+        <span>Romance & Drama</span>
+      </a>
+      <a href="#cat2">
+        <span>Comedy Classics</span>
+      </a>
+      <a href="#cat3">
+        <span>Fantasy & Thriller</span>
+      </a>
+    </nav>
+
+    <footer>&copy; 2026 Amir Lopez. All Rights Reserved.</footer>
+  </body>
+</html>

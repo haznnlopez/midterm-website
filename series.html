@@ -1,0 +1,490 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Series - Amir Lopez</title>
+
+    <link rel="icon" type="image/png" href="images/hero/logo.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="design.css" />
+
+    <style>
+      /* Page Specific Styles (Adapted from Movies Page) */
+      .content-wrapper {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px 80px;
+      }
+
+      .page-header {
+        text-align: center;
+        padding: 60px 20px 60px;
+        scroll-margin-top: 100px;
+      }
+
+      .page-title {
+        font-family: var(--font-heading);
+        color: var(--accent-orange);
+        font-size: 3.5rem;
+        line-height: 1;
+        margin-bottom: 10px;
+      }
+
+      .page-subtitle {
+        color: var(--text-grey);
+        font-size: 1.1rem;
+        text-align: center;
+      }
+
+      /* Genre Sections */
+      .genre-section {
+        margin-bottom: 80px;
+      }
+
+      .genre-title {
+        font-family: var(--font-heading);
+        font-size: 2rem;
+        color: var(--text-white);
+        margin-bottom: 30px;
+        border-bottom: 2px solid var(--accent-orange);
+        display: inline-block;
+        padding-bottom: 5px;
+        scroll-margin-top: 120px;
+      }
+
+      .series-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 30px;
+      }
+
+      .series-card {
+        background-color: var(--bg-card);
+        border: 1px solid #333;
+        border-radius: 15px;
+        overflow: hidden;
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .series-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+        border-color: var(--accent-orange);
+      }
+
+      .card-visual {
+        position: relative;
+        height: 250px;
+        overflow: hidden;
+      }
+
+      .card-visual img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top;
+        transition: transform 0.5s ease;
+      }
+
+      .series-card:hover .card-visual img {
+        transform: scale(1.05);
+      }
+
+      .card-content {
+        padding: 20px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .series-title {
+        font-family: var(--font-heading);
+        font-size: 1.5rem;
+        color: var(--text-white);
+        margin-bottom: 5px;
+        line-height: 1.2;
+      }
+
+      .series-meta {
+        color: var(--accent-orange);
+        font-size: 0.8rem;
+        margin-bottom: 15px;
+        line-height: 1.4;
+      }
+
+      .series-meta span {
+        color: var(--text-grey);
+        font-weight: 400;
+      }
+
+      .series-synopsis {
+        font-size: 0.9rem;
+        color: var(--text-grey);
+        margin-bottom: 20px;
+        line-height: 1.5;
+        flex-grow: 1;
+      }
+
+      .embed-container {
+        margin-top: auto;
+        border-radius: 12px;
+        overflow: hidden;
+        background: #000;
+        position: relative;
+        padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+        height: 0;
+      }
+
+      .embed-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="profile-brand">
+        <img
+          src="images/hero/profile-img.png"
+          alt="Profile"
+          class="profile-pic-small"
+        />
+        <div class="brand-text">
+          <h3>Profile</h3>
+          <span>Amir Jo-hanz Lopez</span>
+        </div>
+      </div>
+
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li class="dropdown-parent">
+            <input type="checkbox" id="stories-toggle" />
+            <label for="stories-toggle" class="menu-link"> Stories ▾ </label>
+            <ul class="dropdown-menu">
+              <li><a href="biography.html">Biography</a></li>
+              <li><a href="blog1.html">Blog Story 1</a></li>
+              <li><a href="blog2.html">Blog Story 2</a></li>
+              <li><a href="blog3.html">Blog Story 3</a></li>
+            </ul>
+          </li>
+          <li class="dropdown-parent">
+            <input type="checkbox" id="dream-toggle" />
+            <label for="dream-toggle" class="menu-link"> Dreams ▾ </label>
+            <ul class="dropdown-menu">
+              <li><a href="dreamplaces.html">Dream Places</a></li>
+              <li><a href="bucketlist.html">Bucket List</a></li>
+            </ul>
+          </li>
+          <li class="dropdown-parent">
+            <input type="checkbox" id="media-toggle" />
+            <label
+              for="media-toggle"
+              class="menu-link"
+              style="background: var(--accent-orange); color: white"
+            >
+              Media ▾
+            </label>
+            <ul class="dropdown-menu">
+              <li><a href="gallery.html">Photos</a></li>
+              <li><a href="music.html">My Beats</a></li>
+              <li><a href="movies.html">My Movies</a></li>
+              <li><a href="series.html" class="active">✦ My Series</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="content-wrapper">
+      <div id="top" class="page-header">
+        <h1 class="page-title">My TV Shows</h1>
+        <p class="page-subtitle">
+          Binge-worthy series that kept me up all night.
+        </p>
+      </div>
+
+      <!-- GENRE 1: Reality TV & Sitcoms -->
+      <section class="genre-section">
+        <h2 class="genre-title" id="cat1">Reality TV & Sitcoms</h2>
+        <div class="series-grid">
+          <!-- Show 1 -->
+          <article class="series-card">
+            <div class="card-visual">
+              <img
+                src="images/media/series1.jpg"
+                alt="RuPaul's Drag Race Poster"
+              />
+            </div>
+            <div class="card-content">
+              <h3 class="series-title">RuPaul's Drag Race</h3>
+              <div class="series-meta">
+                <strong>Directors:</strong> <span>RuPaul, Michelle Visage</span>
+                <br />
+                <strong>Stars:</strong> <span>RuPaul, Michelle Visage</span>
+              </div>
+              <p class="series-synopsis">
+                RuPaul searches for America's next drag superstar.
+              </p>
+              <div class="embed-container">
+                <iframe
+                  width="560"
+                  height="315"
+                  src="https://www.youtube.com/embed/Uq3DBWVCahY?si=kpKcHfWfNQU1YBbn"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="
+                    accelerometer;
+                    autoplay;
+                    clipboard-write;
+                    encrypted-media;
+                    gyroscope;
+                    picture-in-picture;
+                    web-share;
+                  "
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </div>
+          </article>
+
+          <!-- Show 2 -->
+          <article class="series-card">
+            <div class="card-visual">
+              <img src="images/media/series2.jpg" alt="Superstore Poster" />
+            </div>
+            <div class="card-content">
+              <h3 class="series-title">Superstore</h3>
+              <div class="series-meta">
+                <strong>Director:</strong> <span>Justin Spitzer</span><br />
+                <strong>Stars:</strong>
+                <span>Ben Feldman, Lauren Ash, Colton Dunn</span>
+              </div>
+              <p class="series-synopsis">
+                A look at the lives of employees at a big box store.
+              </p>
+              <div class="embed-container">
+                <iframe
+                  width="560"
+                  height="315"
+                  src="https://www.youtube.com/embed/NgZXnTZbF3g?si=6id9A9HoMWTkZ3Xr"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="
+                    accelerometer;
+                    autoplay;
+                    clipboard-write;
+                    encrypted-media;
+                    gyroscope;
+                    picture-in-picture;
+                    web-share;
+                  "
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </div>
+          </article>
+
+          <!-- Show 3 -->
+          <article class="series-card">
+            <div class="card-visual">
+              <img src="images/media/series3.jpg" alt="Hell's Kitchen Poster" />
+            </div>
+            <div class="card-content">
+              <h3 class="series-title">Hell's Kitchen</h3>
+              <div class="series-meta">
+                <strong>Director:</strong> <span>Sharon Trojan Hollinger</span
+                ><br />
+                <strong>Stars:</strong>
+                <span>Gordon Ramsay</span>
+              </div>
+              <p class="series-synopsis">
+                World renowned chef Gordon Ramsay puts aspiring young chefs
+                through rigorous cooking challenges and dinner services at his
+                restaurant, "Hell's Kitchen".
+              </p>
+              <div class="embed-container">
+                <iframe
+                  width="560"
+                  height="315"
+                  src="https://www.youtube.com/embed/UBnMx1mXRK4?si=fow-nxa69OTh0jIe"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="
+                    accelerometer;
+                    autoplay;
+                    clipboard-write;
+                    encrypted-media;
+                    gyroscope;
+                    picture-in-picture;
+                    web-share;
+                  "
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- GENRE 2: Romance & Drama -->
+      <section class="genre-section">
+        <h2 class="genre-title" id="cat2">Romance & Drama</h2>
+        <div class="series-grid">
+          <!-- Show 1 -->
+          <article class="series-card">
+            <div class="card-visual">
+              <img src="images/media/series4.jpg" alt="Suits Poster" />
+            </div>
+            <div class="card-content">
+              <h3 class="series-title">Suits</h3>
+              <div class="series-meta">
+                <strong>Director:</strong> <span>Aaron Korsh</span><br />
+                <strong>Starring:</strong>
+                <span>Gabriel Macht, Patrick J. Adams, Meghan Markle</span>
+              </div>
+              <p class="series-synopsis">
+                On the run from a drug deal gone bad, brilliant college dropout
+                Mike Ross finds himself working with Harvey Specter, one of New
+                York City's best lawyers.
+              </p>
+              <div class="embed-container">
+                <iframe
+                  width="560"
+                  height="315"
+                  src="https://www.youtube.com/embed/85z53bAebsI?si=QKiCHU5pG_qapPyL"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="
+                    accelerometer;
+                    autoplay;
+                    clipboard-write;
+                    encrypted-media;
+                    gyroscope;
+                    picture-in-picture;
+                    web-share;
+                  "
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </div>
+          </article>
+
+          <!-- Show 2 -->
+          <article class="series-card">
+            <div class="card-visual">
+              <img src="images/media/series5.jpg" alt="Arcane Poster" />
+            </div>
+            <div class="card-content">
+              <h3 class="series-title">Arcane</h3>
+              <div class="series-meta">
+                <strong>Director:</strong> <span>Riot Games</span><br />
+                <strong>Starring:</strong>
+                <span>Kevin Alejandro, Hailee Steinfield, Ella Purnell</span>
+              </div>
+              <p class="series-synopsis">
+                Amid the stark discord of twin cities Piltover and Zaun, two
+                sisters fight on rival sides of a war between magic technologies
+                and clashing convictions.
+              </p>
+              <div class="embed-container">
+                <iframe
+                  width="560"
+                  height="315"
+                  src="https://www.youtube.com/embed/fXmAurh012s?si=xrIT56XCWrN-lcdf"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="
+                    accelerometer;
+                    autoplay;
+                    clipboard-write;
+                    encrypted-media;
+                    gyroscope;
+                    picture-in-picture;
+                    web-share;
+                  "
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </div>
+          </article>
+
+          <!-- Show 3 -->
+          <article class="series-card">
+            <div class="card-visual">
+              <img src="images/media/series6.jpg" alt="Bridgerton Poster" />
+            </div>
+            <div class="card-content">
+              <h3 class="series-title">Bridgerton</h3>
+              <div class="series-meta">
+                <strong>Director:</strong> <span>Chris Van Dusen</span><br />
+                <strong>Starring:</strong>
+                <span>Nicola Coughlan, Luke Thompson, Florence Hunt</span>
+              </div>
+              <p class="series-synopsis">
+                The eight close-knit siblings of the Bridgerton family look for
+                love and happiness in London high society.
+              </p>
+              <div class="embed-container">
+                <iframe
+                  width="560"
+                  height="315"
+                  src="https://www.youtube.com/embed/gpv7ayf_tyE?si=e-D2UnO05cVQaq6e"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="
+                    accelerometer;
+                    autoplay;
+                    clipboard-write;
+                    encrypted-media;
+                    gyroscope;
+                    picture-in-picture;
+                    web-share;
+                  "
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <nav class="side-anchors">
+      <a href="#top">
+        <img src="images/buttons/topbtn.png" alt="Top" />
+        <span>Back to Top</span>
+      </a>
+      <a href="#cat1">
+        <span>Reality TV & Sitcoms</span>
+      </a>
+      <a href="#cat2">
+        <span>Romance & Drama</span>
+      </a>
+    </nav>
+
+    <footer>&copy; 2026 Amir Lopez. All Rights Reserved.</footer>
+  </body>
+</html>

@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Paris - Amir Lopez</title>
+
+    <link rel="icon" type="image/png" href="images/hero/logo.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="design.css" />
+
+    <style>
+      .content-wrapper {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 60px 20px 80px;
+      }
+      .place-section {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        background: var(--bg-card);
+        padding: 40px;
+        border-radius: 20px;
+        border: 1px solid #333;
+        margin-top: 40px;
+      }
+      .place-info {
+        flex: 1;
+      }
+      .place-title {
+        font-family: var(--font-heading);
+        font-size: 2.5rem;
+        color: var(--accent-orange);
+        margin-bottom: 15px;
+        line-height: 1.1;
+      }
+      .place-desc {
+        font-size: 1rem;
+        color: var(--text-grey);
+        line-height: 1.6;
+        margin-bottom: 20px;
+      }
+      .place-gallery {
+        flex: 1;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+      }
+      .place-gallery img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        border-radius: 12px;
+        transition: transform 0.3s ease;
+      }
+      .place-gallery img:hover {
+        transform: scale(1.02);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="profile-brand">
+        <img
+          src="images/hero/profile-img.png"
+          alt="Profile"
+          class="profile-pic-small"
+        />
+        <div class="brand-text">
+          <h3>Profile</h3>
+          <span>Amir Jo-hanz Lopez</span>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+
+          <li class="dropdown-parent">
+            <input type="checkbox" id="stories-toggle" />
+            <label for="stories-toggle" class="menu-link"> Stories ▾ </label>
+            <ul class="dropdown-menu">
+              <li><a href="biography.html">Biography</a></li>
+              <li><a href="blog1.html">Blog Story 1</a></li>
+              <li><a href="blog2.html">Blog Story 2</a></li>
+              <li><a href="blog3.html">Blog Story 3</a></li>
+            </ul>
+          </li>
+
+          <li class="dropdown-parent">
+            <input type="checkbox" id="dream-toggle" />
+            <label
+              for="dream-toggle"
+              class="menu-link"
+              style="background: var(--accent-orange); color: white"
+            >
+              Dreams ▾
+            </label>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="dreamplaces.html" class="active">✦ Dream Places</a>
+              </li>
+              <li><a href="bucketlist.html">Bucket List</a></li>
+            </ul>
+          </li>
+
+          <li class="dropdown-parent">
+            <input type="checkbox" id="media-toggle" />
+            <label for="media-toggle" class="menu-link"> Media ▾ </label>
+            <ul class="dropdown-menu">
+              <li><a href="gallery.html">Photos</a></li>
+              <li><a href="music.html">My Beats</a></li>
+              <li><a href="movies.html">My Movies</a></li>
+              <li><a href="series.html">My Series</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="side-nav left">
+      <a href="dreamplaces.html" class="nav-btn">&#8592;</a>
+      <span class="nav-label">Back to Map</span>
+    </div>
+
+    <main class="content-wrapper">
+      <section class="place-section">
+        <div class="place-info">
+          <h1 class="place-title">Paris, France</h1>
+          <p class="place-desc">
+            I need to be in Paris because I refuse to go another day without
+            feeling that specific, golden ache of a sunset over the Seine. I
+            want to be the one sitting at a tiny, marble-topped bistro table,
+            watching the world drift by with a glass of wine in my hand and the
+            smell of fresh baguettes drifting through the air. I have to see the
+            Eiffel Tower sparkle against a velvet sky for the first time with my
+            own eyes—not through a screen—and I need to lose myself in the
+            winding, cobblestone secrets of Montmartre where the ghosts of
+            artists still linger. I’m desperate to stand in the shadow of the
+            Louvre and feel the weight of centuries of beauty pressing down on
+            me, to finally understand what it means to truly savor a life lived
+            slowly and elegantly. I don't just want to visit; I need to breathe
+            in that city until I’m convinced that romance isn't dead and that
+            I’m exactly where I was always meant to be.
+          </p>
+        </div>
+        <div class="place-gallery">
+          <a href="images/places/paris1.jpg" target="images">
+            <img
+              src="images/places/paris1.jpg"
+              alt="Seine Sunset"
+              title="Seine Sunset"
+            />
+          </a>
+          <a href="images/places/paris2.jpg" target="images">
+            <img
+              src="images/places/paris2.jpg"
+              alt="French Baguettes"
+              title="French Baguettes"
+            />
+          </a>
+          <a href="images/places/paris3.jpg" target="images">
+            <img
+              src="images/places/paris3.jpg"
+              alt="Eiffel Tower"
+              title="Eiffel Tower"
+            />
+          </a>
+          <a href="images/places/paris4.jpg" target="images">
+            <img
+              src="images/places/paris4.jpg"
+              alt="Montmartre"
+              title="Montmartre"
+            />
+          </a>
+          <a href="images/places/paris5.jpg" target="images">
+            <img
+              src="images/places/paris5.jpg"
+              alt="The Louvre"
+              title="The Louvre"
+            />
+          </a>
+          <a href="images/places/paris6.jpg" target="images">
+            <img
+              src="images/places/paris6.jpg"
+              alt="Arc de Triomphe"
+              title="Arc de Triomphe"
+            />
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer>&copy; 2026 Amir Lopez. All Rights Reserved.</footer>
+  </body>
+</html>

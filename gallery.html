@@ -1,0 +1,705 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gallery - Amir Lopez</title>
+
+    <link rel="icon" type="image/png" href="images/hero/logo.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="design.css" />
+
+    <style>
+      .content-wrapper {
+        position: relative;
+        width: 100%;
+        flex: 1;
+      }
+
+      .gallery-header {
+        text-align: center;
+        padding: 60px 20px 40px;
+        max-width: 800px;
+        margin: 0 auto;
+        scroll-margin-top: 80px;
+      }
+
+      .gallery-title {
+        font-family: var(--font-heading);
+        color: var(--accent-orange);
+        font-size: 3.5rem;
+        line-height: 1;
+      }
+
+      .gallery-subtitle {
+        color: var(--text-grey);
+        font-size: 1.1rem;
+        text-align: center;
+      }
+
+      .gallery-subtitle b {
+        color: var(--accent-orange);
+      }
+
+      /* BENTO GRID */
+      .bento-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: 250px;
+        gap: 20px;
+        max-width: 1200px;
+        margin: 0 auto 60px;
+        padding: 0 20px 40px;
+        scroll-margin-top: 120px;
+      }
+
+      .bento-item {
+        background-color: var(--bg-card);
+        border-radius: 20px;
+        overflow: hidden;
+        position: relative;
+        border: 1px solid #333;
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        cursor: zoom-in;
+      }
+
+      .bento-item:hover {
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+        border-color: var(--accent-orange);
+        z-index: 10;
+      }
+
+      .bento-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.2s ease;
+        cursor: zoom-in;
+      }
+
+      .bento-item:hover img {
+        transform: scale(1.02);
+      }
+
+      /* Overlay */
+      .bento-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 20px;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+        color: var(--text-white);
+      }
+
+      .bento-cat {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        background: var(--accent-orange);
+        font-weight: 600;
+        padding: 4px;
+        border-radius: 5px;
+      }
+
+      .bento-title {
+        font-family: var(--font-heading);
+        font-size: 1.2rem;
+        line-height: 1.1;
+      }
+
+      /* Spans for Bento Effect */
+      .col-span-2 {
+        grid-column: span 2;
+      }
+      .row-span-2 {
+        grid-row: span 2;
+      }
+      .col-span-3 {
+        grid-column: span 3;
+      }
+
+      .bento-minimal {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 30px;
+        background: var(--accent-orange);
+        color: var(--bg-darker);
+        position: relative;
+        border: none;
+        cursor: not-allowed;
+      }
+
+      .bento-minimal h2 {
+        font-family: var(--font-heading);
+        font-size: 3.5rem;
+        line-height: 0.9;
+        color: var(--bg-darker);
+        margin-bottom: 10px;
+      }
+
+      .bento-minimal p {
+        line-height: 0.9;
+        font-size: 0.9rem;
+        color: rgba(26, 26, 26, 0.7);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="profile-brand">
+        <img
+          src="images/hero/profile-img.png"
+          alt="Profile"
+          class="profile-pic-small"
+        />
+        <div class="brand-text">
+          <h3>Profile</h3>
+          <span>Amir Jo-hanz Lopez</span>
+        </div>
+      </div>
+
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li class="dropdown-parent">
+            <input type="checkbox" id="stories-toggle" />
+            <label for="stories-toggle" class="menu-link"> Stories ▾ </label>
+            <ul class="dropdown-menu">
+              <li><a href="biography.html">Biography</a></li>
+              <li><a href="blog1.html">Blog Story 1</a></li>
+              <li><a href="blog2.html">Blog Story 2</a></li>
+              <li><a href="blog3.html">Blog Story 3</a></li>
+            </ul>
+          </li>
+          <li class="dropdown-parent">
+            <input type="checkbox" id="dream-toggle" />
+            <label for="dream-toggle" class="menu-link"> Dreams ▾ </label>
+            <ul class="dropdown-menu">
+              <li><a href="dreamplaces.html">Dream Places</a></li>
+              <li><a href="bucketlist.html">Bucket List</a></li>
+            </ul>
+          </li>
+          <li class="dropdown-parent">
+            <input type="checkbox" id="media-toggle" />
+            <label for="media-toggle" class="menu-link"> Media ▾ </label>
+            <ul class="dropdown-menu">
+              <li>
+                <a
+                  href="gallery.html"
+                  style="background: var(--accent-orange); color: white"
+                  >✦ Photos</a
+                >
+              </li>
+              <li><a href="music.html">My Beats</a></li>
+              <li><a href="movies.html">My Movies</a></li>
+              <li><a href="series.html">My Series</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="content-wrapper">
+      <div id="top" class="gallery-header">
+        <h1 class="gallery-title">Gallery</h1>
+        <p class="gallery-subtitle">
+          A collection of moments, experiences, and memories.
+        </p>
+      </div>
+
+      <div id="cat1" class="bento-grid">
+        <div class="bento-item bento-minimal col-span-2 row-span-2">
+          <p>Category 01</p>
+          <h2>Childhood Memories</h2>
+        </div>
+
+        <div class="bento-item row-span-2">
+          <a href="images/bio/child1.jpg" target="images">
+            <img
+              src="images/bio/child1.jpg"
+              alt="Grade 3 Awarding"
+              title="Me being awarded as the Rank #1 during Grade 3"
+            />
+          </a>
+          <div class="bento-overlay">
+            <span class="bento-cat">Childhood Memories</span>
+            <div class="bento-title">Grade 3 Awarding</div>
+          </div>
+        </div>
+
+        <div class="bento-item">
+          <a href="images/bio/child2.jpg" target="images">
+            <img
+              src="images/bio/child2.jpg"
+              alt="Bulilit Health Workers"
+              title="Me and my team participating in the National Bulilit Health Workers Quiz Bee"
+            />
+          </a>
+          <div class="bento-overlay">
+            <span class="bento-cat">Childhood Memories</span>
+            <div class="bento-title">Bulilit Health Workers</div>
+          </div>
+        </div>
+
+        <div class="bento-item">
+          <a href="images/bio/child3.jpg" target="images">
+            <img
+              src="images/bio/child3.jpg"
+              alt="MTAP Divison Level"
+              title="Me and my team participating in the MTAP Division Level"
+            />
+          </a>
+          <div class="bento-overlay">
+            <span class="bento-cat">Childhood Memories</span>
+            <div class="bento-title">MTAP Divison Level</div>
+          </div>
+        </div>
+
+        <div class="bento-item">
+          <a href="images/bio/child4.jpg" target="images">
+            <img
+              src="images/bio/child4.jpg"
+              alt="Nutrition Month"
+              title="Just me posing in front of the display"
+            />
+          </a>
+          <div class="bento-overlay" target="images">
+            <span class="bento-cat">Childhood Memories</span>
+            <div class="bento-title">Nutrition Month</div>
+          </div>
+        </div>
+
+        <div class="bento-item col-span-3">
+          <a href="images/gallery/childhood1.jpg">
+            <img
+              src="images/gallery/childhood1.jpg"
+              alt="DreamPlay Encounters"
+              title="Me and my fam in DreamPlay"
+            />
+          </a>
+          <div class="bento-overlay">
+            <span class="bento-cat">Childhood Memories</span>
+            <div class="bento-title">DreamPlay Encounters</div>
+          </div>
+        </div>
+
+        <div class="bento-item col-span-3">
+          <a href="images/gallery/childhood2.jpg" target="images">
+            <img
+              src="images/gallery/childhood2.jpg"
+              alt="Outing with Childhood Friends"
+              title="Me and my friends enjoying an outing together"
+            />
+          </a>
+          <div class="bento-overlay">
+            <span class="bento-cat">Childhood Memories</span>
+            <div class="bento-title">Outing with Childhood Friends</div>
+          </div>
+        </div>
+
+        <div class="bento-item row-span-2">
+          <a href="images/bio/child6.jpg" target="images">
+            <img
+              src="images/bio/child6.jpg"
+              alt="Lunch Kulitan at School"
+              title="Just me being silly while eating lunch at school"
+            />
+          </a>
+          <div class="bento-overlay">
+            <span class="bento-cat">Childhood Memories</span>
+            <div class="bento-title">Lunch Kulitan at School</div>
+          </div>
+        </div>
+
+        <div class="bento-item col-span-2">
+          <a href="images/gallery/childhood3.jpg" target="images">
+            <img
+              src="images/gallery/childhood3.jpg"
+              alt="Me and My Siblings"
+              title="My sisters and I taking a picture together"
+            />
+          </a>
+          <div class="bento-overlay">
+            <span class="bento-cat">Childhood Memories</span>
+            <div class="bento-title">Me and My Siblings</div>
+          </div>
+        </div>
+
+        <div class="bento-item">
+          <a href="images/bio/child5.jpg" target="images">
+            <img
+              src="images/bio/child5.jpg"
+              alt="Goofy Pic"
+              title="Me taking a goofy pic with my mother's phone"
+            />
+          </a>
+          <div class="bento-overlay">
+            <span class="bento-cat">Childhood Memories</span>
+            <div class="bento-title">Goofy Pic</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="cat2" class="bento-grid">
+        <div class="bento-item bento-minimal col-span-2 row-span-2">
+          <p>Category 02</p>
+          <h2>Teenage Memories</h2>
+        </div>
+
+        <div class="bento-item col-span-2">
+          <a href="images/bio/teen1.jpg" target="images">
+            <img
+              src="images/bio/teen1.jpg"
+              alt="My Batch 2024 Schoolmates"
+              title="Me with my batchmates"
+            />
+          </a>
+          <div class="bento-overlay">
+            <span class="bento-cat">Teenage Memories</span>
+            <div class="bento-title">My Batch 2024 Schoolmates</div>
+          </div>
+        </div>
+
+        <div class="bento-item">
+          <a href="images/bio/teen2.png" target="images">
+            <img
+              src="images/bio/teen2.png"
+              alt="Christmas Party with Jejemon Theme"
+              title="Me winning best dressed in our Christmas Party with the theme 'Jejemon'"
+            />
+          </a>
+          <div class="bento-overlay">
+            <span class="bento-cat">Teenage Memories</span>
+            <div class="bento-title">Christmas Party with Jejemon Theme</div>
+          </div>
+        </div>
+
+        <div class="bento-item row-span-2">
+          <a href="images/bio/teen4.jpg" target="images">
+            <img
+              src="images/bio/teen4.jpg"
+              alt="SHS Graduation Creative Photoshoot"
+              title="My take on NewJeans outfit"
+            />
+          </a>
+          <div class="bento-overlay">
+            <span class="bento-cat">Teenage Memories</span>
+            <div class="bento-title">SHS Graduation Creative Photoshoot</div>
+          </div>
+        </div>
+
+        <div class="bento-item row-span-2">
+          <a href="images/bio/teen6.jpg" target="images">
+            <img
+              src="images/bio/teen6.jpg"
+              alt="Circle of Friends"
+              title="My circle of friends (literally)"
+            />
+          </a>
+          <div class="bento-overlay">
+            <span class="bento-cat">Teenage Memories</span>
+            <div class="bento-title">Circle of Friends</div>
+          </div>
+        </div>
+
+        <div class="bento-item row-span-2 col-span-2">
+          <a href="images/bio/teen5.jpg">
+            <img
+              src="images/bio/teen5.jpg"
+              alt="SHS Graduation Prom"
+              title="Me and my friends in our SHS Graduation Prom"
+            />
+          </a>
+          <div class="bento-overlay">
+            <span class="bento-cat">Teenage Memories</span>
+            <div class="bento-title">SHS Graduation Prom</div>
+          </div>
+        </div>
+
+        <div class="bento-item row-span-2">
+          <a href="images/gallery/teen1.jpg" target="images">
+            <img
+              src="images/gallery/teen1.jpg"
+              alt="Blackout Moment"
+              title="Me being blacked out during a party with friends"
+            />
+          </a>
+          <div class="bento-overlay">
+            <span class="bento-cat">Teenage Memories</span>
+            <div class="bento-title">Blackout Moment</div>
+          </div>
+        </div>
+
+        <div class="bento-item col-span-2">
+          <a href="images/gallery/teen3.jpg" target="images">
+            <img
+              src="images/gallery/teen3.jpg"
+              alt="My Inner Circle of Friends"
+              title="Us taking a picture after our photoshoots"
+            />
+          </a>
+          <div class="bento-overlay">
+            <span class="bento-cat">Teenage Memories</span>
+            <div class="bento-title">My Inner Circle of Friends</div>
+          </div>
+        </div>
+
+        <div class="bento-item">
+          <a href="images/gallery/teen2.jpg" target="images">
+            <img
+              src="images/gallery/teen2.jpg"
+              alt="SHS Graduation"
+              title="My Graduation"
+            />
+          </a>
+          <div class="bento-overlay">
+            <span class="bento-cat">Teenage Memories</span>
+            <div class="bento-title">PSHS Graduation</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="cat3" class="bento-grid">
+        <div class="bento-item bento-minimal col-span-2 row-span-2">
+          <p>Category 03</p>
+          <h2>College Memories</h2>
+        </div>
+
+        <div class="bento-item">
+          <a href="images/bio/college1.jpg" target="images">
+            <img
+              src="images/bio/college1.jpg"
+              alt="Tagisan ng Talino"
+              title="My team winning 2nd Place in Tagisan ng Talino"
+            />
+          </a>
+          <div class="bento-overlay">
+            <span class="bento-cat">College Memories</span>
+            <div class="bento-title">Tagisan ng Talino in UE-Caloocan</div>
+          </div>
+        </div>
+
+        <div class="bento-item row-span-2">
+          <a href="images/bio/college2.jpg" target="images">
+            <img
+              src="images/bio/college2.jpg"
+              alt="Freshie Walk with CCSS"
+              title="Our much anticipated Freshie Walk with the College of Computer Studies and Systems"
+            />
+          </a>
+          <div class="bento-overlay">
+            <span class="bento-cat">College Memories</span>
+            <div class="bento-title">Freshie Walk with CCSS</div>
+          </div>
+        </div>
+
+        <div class="bento-item row-span-2">
+          <a href="images/bio/college4.jpg" target="images">
+            <img
+              src="images/bio/college4.jpg"
+              alt="Sponty MOA Gala"
+              title="Me and my friends going to MOA spontaneously"
+            />
+          </a>
+          <div class="bento-overlay">
+            <span class="bento-cat">College Memories</span>
+            <div class="bento-title">Sponty MOA Gala</div>
+          </div>
+        </div>
+
+        <div class="bento-item row-span-2">
+          <a href="images/bio/college3.jpg" target="images">
+            <img
+              src="images/bio/college3.jpg"
+              alt="First College Friends"
+              title="My first college friends during our first semester"
+            />
+          </a>
+          <div class="bento-overlay">
+            <span class="bento-cat">College Memories</span>
+            <div class="bento-title">First College Friends</div>
+          </div>
+        </div>
+
+        <div class="bento-item">
+          <a href="images/bio/college5.jpg" target="images">
+            <img
+              src="images/bio/college5.jpg"
+              alt="UP Fair 2025 with my Boyfriend"
+              title="Attending the UP Fair 2025 with my boyfriend"
+            />
+          </a>
+          <div class="bento-overlay">
+            <span class="bento-cat">College Memories</span>
+            <div class="bento-title">UP Fair 2025</div>
+          </div>
+        </div>
+
+        <div class="bento-item">
+          <a href="images/bio/college6.jpg" target="images">
+            <img
+              src="images/bio/college6.jpg"
+              alt="Auditioning for UE Drama Club"
+              title="Me auditioning and passing for the UE Drama Club"
+            />
+          </a>
+          <div class="bento-overlay">
+            <span class="bento-cat">College Memories</span>
+            <div class="bento-title">Auditioning for UE Drama Club</div>
+          </div>
+        </div>
+
+        <div class="bento-item col-span-3">
+          <a href="images/gallery/college1.jpg" target="images">
+            <img
+              src="images/gallery/college1.jpg"
+              alt="Hosting for a COMSSO Seminar"
+              title="Being a host for COMSSO's seminar"
+            />
+          </a>
+          <div class="bento-overlay">
+            <span class="bento-cat">College Memories</span>
+            <div class="bento-title">Hosting for a COMSSO Seminar</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="cat4" class="bento-grid">
+        <div class="bento-item bento-minimal col-span-2 row-span-2">
+          <p>Category 04</p>
+          <h2>My Favorites</h2>
+        </div>
+
+        <div class="bento-item">
+          <a href="images/gallery/fav1.jpg" target="images">
+            <img
+              src="images/gallery/fav1.jpg"
+              alt="Ariana Grande"
+              title="My Favorite Artist"
+            />
+          </a>
+          <div class="bento-overlay">
+            <span class="bento-cat">Singer</span>
+            <div class="bento-title">Ariana Grande</div>
+          </div>
+        </div>
+
+        <div class="bento-item">
+          <a href="images/gallery/fav2.jpg" target="images">
+            <img
+              src="images/gallery/fav2.jpg"
+              alt="Eternal Sunshine"
+              title="My Favorite Album"
+            />
+          </a>
+          <div class="bento-overlay">
+            <span class="bento-cat">Album</span>
+            <div class="bento-title">Eternal Sunshine</div>
+          </div>
+        </div>
+
+        <div class="bento-item col-span-2">
+          <a href="images/gallery/fav3.jpg" target="images">
+            <img
+              src="images/gallery/fav3.jpg"
+              alt="NewJeans"
+              title="My Favorite K-Pop Group"
+            />
+          </a>
+          <div class="bento-overlay">
+            <span class="bento-cat">K-Pop Group</span>
+            <div class="bento-title">NewJeans</div>
+          </div>
+        </div>
+
+        <div class="bento-item row-span-2">
+          <a href="images/gallery/fav5.jpg" target="images">
+            <img
+              src="images/gallery/fav5.jpg"
+              alt="Valentina of MLBB"
+              title="My favorite MLBB Character"
+            />
+          </a>
+          <div class="bento-overlay">
+            <span class="bento-cat">MLBB Character</span>
+            <div class="bento-title">Valentina</div>
+          </div>
+        </div>
+
+        <div class="bento-item row-span-2 col-span-2">
+          <a href="images/gallery/fav4.jpg" target="images">
+            <img
+              src="images/gallery/fav4.jpg"
+              alt="Kare-Kare"
+              title="My Favorite Food"
+            />
+          </a>
+          <div class="bento-overlay">
+            <span class="bento-cat">Food</span>
+            <div class="bento-title">Kare-kare</div>
+          </div>
+        </div>
+
+        <div class="bento-item">
+          <a href="images/gallery/fav6.jpg" target="images">
+            <img
+              src="images/gallery/fav6.jpg"
+              alt="Manila Cathedral at Night"
+              title="My Favorite Tambayan Spot"
+            />
+          </a>
+          <div class="bento-overlay">
+            <span class="bento-cat">Tambayan Spot</span>
+            <div class="bento-title">Intramuros; Manila Cathedral</div>
+          </div>
+        </div>
+
+        <div class="bento-item">
+          <a href="images/gallery/fav7.jpg" target="images">
+            <img
+              src="images/gallery/fav7.jpg"
+              alt="Sunflowers"
+              title="My Favorite Flower"
+            />
+          </a>
+          <div class="bento-overlay">
+            <span class="bento-cat">Flower</span>
+            <div class="bento-title">Sunflowers</div>
+          </div>
+        </div>
+      </div>
+
+      <nav class="side-anchors">
+        <a href="#top">
+          <img src="images/buttons/topbtn.png" alt="Top" />
+          <span>Back to Top</span>
+        </a>
+        <a href="#cat1">
+          <span>Childhood Memories</span>
+        </a>
+        <a href="#cat2">
+          <span>Teenage Memories</span>
+        </a>
+        <a href="#cat3">
+          <span>College Memories</span>
+        </a>
+        <a href="#cat4">
+          <span>My Favorites</span>
+        </a>
+      </nav>
+    </main>
+
+    <footer>&copy; 2026 Amir Lopez. All Rights Reserved.</footer>
+  </body>
+</html>

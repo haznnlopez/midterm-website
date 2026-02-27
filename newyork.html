@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New York City - Amir Lopez</title>
+
+    <link rel="icon" type="image/png" href="images/hero/logo.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="design.css" />
+
+    <style>
+      .content-wrapper {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 60px 20px 80px;
+      }
+      .place-section {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        background: var(--bg-card);
+        padding: 40px;
+        border-radius: 20px;
+        border: 1px solid #333;
+        margin-top: 40px;
+      }
+      .place-info {
+        flex: 1;
+      }
+      .place-title {
+        font-family: var(--font-heading);
+        font-size: 2.5rem;
+        color: var(--accent-orange);
+        margin-bottom: 15px;
+        line-height: 1.1;
+      }
+      .place-desc {
+        font-size: 1rem;
+        color: var(--text-grey);
+        line-height: 1.6;
+        margin-bottom: 20px;
+      }
+      .place-gallery {
+        flex: 1;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+      }
+      .place-gallery img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        border-radius: 12px;
+        transition: transform 0.3s ease;
+      }
+      .place-gallery img:hover {
+        transform: scale(1.02);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="profile-brand">
+        <img
+          src="images/hero/profile-img.png"
+          alt="Profile"
+          class="profile-pic-small"
+        />
+        <div class="brand-text">
+          <h3>Profile</h3>
+          <span>Amir Jo-hanz Lopez</span>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+
+          <li class="dropdown-parent">
+            <input type="checkbox" id="stories-toggle" />
+            <label for="stories-toggle" class="menu-link"> Stories ▾ </label>
+            <ul class="dropdown-menu">
+              <li><a href="biography.html">Biography</a></li>
+              <li><a href="blog1.html">Blog Story 1</a></li>
+              <li><a href="blog2.html">Blog Story 2</a></li>
+              <li><a href="blog3.html">Blog Story 3</a></li>
+            </ul>
+          </li>
+
+          <li class="dropdown-parent">
+            <input type="checkbox" id="dream-toggle" />
+            <label
+              for="dream-toggle"
+              class="menu-link"
+              style="background: var(--accent-orange); color: white"
+            >
+              Dreams ▾
+            </label>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="dreamplaces.html" class="active">✦ Dream Places</a>
+              </li>
+              <li><a href="bucketlist.html">Bucket List</a></li>
+            </ul>
+          </li>
+
+          <li class="dropdown-parent">
+            <input type="checkbox" id="media-toggle" />
+            <label for="media-toggle" class="menu-link"> Media ▾ </label>
+            <ul class="dropdown-menu">
+              <li><a href="gallery.html">Photos</a></li>
+              <li><a href="music.html">My Beats</a></li>
+              <li><a href="movies.html">My Movies</a></li>
+              <li><a href="series.html">My Series</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="side-nav left">
+      <a href="dreamplaces.html" class="nav-btn">&#8592;</a>
+      <span class="nav-label">Back to Map</span>
+    </div>
+
+    <main class="content-wrapper">
+      <section class="place-section">
+        <div class="place-info">
+          <h1 class="place-title">New York City, USA</h1>
+          <p class="place-desc">
+            I need to be in New York City because I refuse to spend another year
+            watching my life play out in a minor key while the rest of the world
+            is screaming in technicolor. I want to be the one standing at the
+            edge of the SUMMIT One Vanderbilt glass floor, suspended 1,100 feet
+            above the pavement, feeling that heart-stopping rush as the city
+            grid pulses beneath my boots like a living circuit board. I’m
+            desperate to lose myself in the neon-soaked fever dream of Times
+            Square at midnight, where the air hums with the energy of eight
+            million stories, and then disappear into a velvet-walled jazz club
+            in the Village where the saxophone feels like it’s speaking only to
+            me. I have to walk across the Brooklyn Bridge at sunrise, watching
+            the skyline transform into a crown of diamonds, and I need to taste
+            that first, life-changing bite of a corner-store bagel that makes
+            every other meal I’ve ever had feel like a rehearsal. I want to sit
+            on the steps of The Met and feel like the protagonist of my own
+            grand adventure, surrounded by five thousand years of human genius.
+            I don’t just want to visit; I need to breathe in the ambition, the
+            grit, and the relentless beauty of this place until I finally feel
+            as big and as bold as the city itself. I belong where the lights
+            never dim and the possibilities never end—I need to finally wake up
+            in the city that never sleeps.
+          </p>
+        </div>
+        <div class="place-gallery">
+          <a href="images/places/nyc1.jpg" target="images">
+            <img
+              src="images/places/nyc1.jpg"
+              alt="SUMMIT One Vanderbilt glass floor"
+              title="SUMMIT One Vanderbilt glass floor"
+            />
+          </a>
+          <a href="images/places/nyc2.jpg" target="images">
+            <img
+              src="images/places/nyc2.jpg"
+              alt="Times Square"
+              title="Times Square"
+            />
+          </a>
+          <a href="images/places/nyc3.jpg" target="images">
+            <img
+              src="images/places/nyc3.jpg"
+              alt="Village Vanguard Jazz Club"
+              title="Village Vanguard Jazz Club"
+            />
+          </a>
+          <a href="images/places/nyc4.jpg" target="images">
+            <img
+              src="images/places/nyc4.jpg"
+              alt="Brooklyn Bridge"
+              title="Brooklyn Bridge"
+            />
+          </a>
+          <a href="images/places/nyc5.jpg" target="images">
+            <img
+              src="images/places/nyc5.jpg"
+              alt="New York City Bagels"
+              title="New York City Bagels"
+            />
+          </a>
+          <a href="images/places/nyc6.jpg" target="images">
+            <img
+              src="images/places/nyc6.jpg"
+              alt="The Met"
+              title="The Metropolitan Museum of Art"
+            />
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer>&copy; 2026 Amir Lopez. All Rights Reserved.</footer>
+  </body>
+</html>

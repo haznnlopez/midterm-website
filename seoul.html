@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Seoul - Amir Lopez</title>
+
+    <link rel="icon" type="image/png" href="images/hero/logo.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="design.css" />
+
+    <style>
+      .content-wrapper {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 60px 20px 80px;
+      }
+      .place-section {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        background: var(--bg-card);
+        padding: 40px;
+        border-radius: 20px;
+        border: 1px solid #333;
+        margin-top: 40px;
+      }
+      .place-info {
+        flex: 1;
+      }
+      .place-title {
+        font-family: var(--font-heading);
+        font-size: 2.5rem;
+        color: var(--accent-orange);
+        margin-bottom: 15px;
+        line-height: 1.1;
+      }
+      .place-desc {
+        font-size: 1rem;
+        color: var(--text-grey);
+        line-height: 1.6;
+        margin-bottom: 20px;
+      }
+      .place-gallery {
+        flex: 1;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+      }
+      .place-gallery img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        border-radius: 12px;
+        transition: transform 0.3s ease;
+      }
+      .place-gallery img:hover {
+        transform: scale(1.02);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="profile-brand">
+        <img
+          src="images/hero/profile-img.png"
+          alt="Profile"
+          class="profile-pic-small"
+        />
+        <div class="brand-text">
+          <h3>Profile</h3>
+          <span>Amir Jo-hanz Lopez</span>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+
+          <li class="dropdown-parent">
+            <input type="checkbox" id="stories-toggle" />
+            <label for="stories-toggle" class="menu-link"> Stories ▾ </label>
+            <ul class="dropdown-menu">
+              <li><a href="biography.html">Biography</a></li>
+              <li><a href="blog1.html">Blog Story 1</a></li>
+              <li><a href="blog2.html">Blog Story 2</a></li>
+              <li><a href="blog3.html">Blog Story 3</a></li>
+            </ul>
+          </li>
+
+          <li class="dropdown-parent">
+            <input type="checkbox" id="dream-toggle" />
+            <label
+              for="dream-toggle"
+              class="menu-link"
+              style="background: var(--accent-orange); color: white"
+            >
+              Dreams ▾
+            </label>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="dreamplaces.html" class="active">✦ Dream Places</a>
+              </li>
+              <li><a href="bucketlist.html">Bucket List</a></li>
+            </ul>
+          </li>
+
+          <li class="dropdown-parent">
+            <input type="checkbox" id="media-toggle" />
+            <label for="media-toggle" class="menu-link"> Media ▾ </label>
+            <ul class="dropdown-menu">
+              <li><a href="gallery.html">Photos</a></li>
+              <li><a href="music.html">My Beats</a></li>
+              <li><a href="movies.html">My Movies</a></li>
+              <li><a href="series.html">My Series</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="side-nav left">
+      <a href="dreamplaces.html" class="nav-btn">&#8592;</a>
+      <span class="nav-label">Back to Map</span>
+    </div>
+
+    <main class="content-wrapper">
+      <section class="place-section">
+        <div class="place-info">
+          <h1 class="place-title">Seoul, South Korea</h1>
+          <p class="place-desc">
+            I need to be in Seoul because I’m desperate to live in a world where
+            600-year-old dynasty secrets and neon-lit digital futures don't just
+            coexist—they collide. I want to be the one stepping through the
+            massive wooden gates of Gyeongbokgung Palace in a flowing silk
+            hanbok, feeling the sudden, ancient silence fall over me while the
+            glass skyscrapers of the modern city tower just beyond the walls. I
+            need to lose myself in the narrow, winding stone alleys of Bukchon
+            Hanok Village at dawn, then find myself three hours later in the
+            industrial-chic cafes of Seongsu-dong, drinking an espresso in a
+            renovated warehouse that feels like the birthplace of every global
+            trend. I’m craving that late-night rush of Myeongdong, where the air
+            is a symphony of sizzling street food and the glow of a thousand
+            skincare shops, and I won't be satisfied until I’ve shared a
+            communal table at Gwangjang Market, eating spicy tteokbokki under
+            the watchful eye of a legendary "Netflix Lady." I have to stand at
+            the top of N Seoul Tower as the city turns into a sea of electric
+            pulsing lights, and I need to feel the raw, heartbreaking weight of
+            history at the DMZ, just an hour away from the pop-infused energy of
+            Gangnam. I don’t just want a trip; I need to be part of the
+            heung—that infectious, soul-deep Korean joy—until I’ve experienced a
+            city that manages to be the fastest-moving place on earth while
+            never forgetting its heart.
+          </p>
+        </div>
+        <div class="place-gallery">
+          <a href="images/places/seoul1.jpg" target="images">
+            <img
+              src="images/places/seoul1.jpg"
+              alt="Gyeongbokgung Palace"
+              title="Gyeongbokgung Palace"
+            />
+          </a>
+          <a href="images/places/seoul2.jpg" target="images">
+            <img
+              src="images/places/seoul2.jpg"
+              alt="Bukchon Hanok Village"
+              title="Bukchon Hanok Village"
+            />
+          </a>
+          <a href="images/places/seoul3.jpg" target="images">
+            <img
+              src="images/places/seoul3.jpg"
+              alt="Myeongdong"
+              title="Myeongdong"
+            />
+          </a>
+          <a href="images/places/seoul4.jpg" target="images">
+            <img
+              src="images/places/seoul4.jpg"
+              alt="Seongsu-dong"
+              title="Seongsu-dong"
+            />
+          </a>
+          <a href="images/places/seoul5.jpg" target="images">
+            <img
+              src="images/places/seoul5.jpg"
+              alt="Gwangjang Market"
+              title="Gwangjang Market"
+            />
+          </a>
+          <a href="images/places/seoul6.jpg" target="images">
+            <img
+              src="images/places/seoul6.jpg"
+              alt="N Seoul Tower"
+              title="N Seoul Tower"
+            />
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer>&copy; 2026 Amir Lopez. All Rights Reserved.</footer>
+  </body>
+</html>

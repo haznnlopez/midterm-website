@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bucket List - Amir Lopez</title>
+
+    <link rel="icon" type="image/png" href="images/hero/logo.png" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="design.css" />
+
+    <style>
+      /* Page specific styles */
+      .page-header {
+        text-align: center;
+        margin-top: 50px;
+        margin-bottom: 40px;
+        padding: 0 20px;
+      }
+
+      .page-title {
+        font-family: var(--font-heading);
+        font-size: 3.5rem;
+        color: var(--accent-orange);
+        margin-bottom: 15px;
+        line-height: 1;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      }
+
+      .page-subtitle {
+        font-family: var(--font-body);
+        font-size: 1.1rem;
+        color: var(--text-grey);
+        max-width: 600px;
+        margin: 0 auto;
+        line-height: 1.6;
+        text-align: center;
+      }
+
+      /* Bucket List Grid Section */
+      .bucket-section {
+        max-width: 1200px;
+        margin: 0 auto 80px;
+        padding: 0 20px;
+      }
+
+      .bucket-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 30px;
+      }
+
+      .bucket-card {
+        background-color: var(--bg-card);
+        border: 1px solid #333;
+        border-radius: 15px;
+        overflow: hidden;
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease,
+          border-color 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+      }
+
+      .bucket-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+        border-color: var(--accent-orange);
+      }
+
+      .card-image {
+        position: relative;
+        height: 220px;
+        overflow: hidden;
+      }
+
+      .card-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .status-badge {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        z-index: 10;
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        border: 1px solid var(--accent-orange);
+        backdrop-filter: blur(4px);
+      }
+
+      .card-content {
+        padding: 25px 20px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .item-number {
+        color: var(--accent-orange);
+        font-family: var(--font-heading);
+        font-size: 2.5rem;
+        line-height: 1;
+        opacity: 0.3;
+        position: absolute;
+        top: 190px;
+        right: 20px;
+        z-index: 2;
+      }
+
+      .bucket-title {
+        font-family: var(--font-heading);
+        font-size: 1.6rem;
+        color: var(--text-white);
+        margin-bottom: 12px;
+        line-height: 1.2;
+        padding-right: 30px; /* Space for the number */
+      }
+
+      .bucket-desc {
+        font-size: 0.95rem;
+        color: var(--text-grey);
+        line-height: 1.6;
+        flex-grow: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <!-- Profile Logo / Brand -->
+      <div class="profile-brand">
+        <img
+          src="images/hero/profile-img.png"
+          alt="Profile"
+          class="profile-pic-small"
+        />
+        <div class="brand-text">
+          <h3>Profile</h3>
+          <span>Amir Jo-hanz Lopez</span>
+        </div>
+      </div>
+
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+
+          <li class="dropdown-parent">
+            <input type="checkbox" id="stories-toggle" />
+            <label for="stories-toggle" class="menu-link"> Stories ▾ </label>
+            <ul class="dropdown-menu">
+              <li><a href="biography.html">Biography</a></li>
+              <li><a href="blog1.html">Blog Story 1</a></li>
+              <li><a href="blog2.html">Blog Story 2</a></li>
+              <li><a href="blog3.html">Blog Story 3</a></li>
+            </ul>
+          </li>
+
+          <li class="dropdown-parent">
+            <input type="checkbox" id="dream-toggle" />
+            <label
+              for="dream-toggle"
+              class="menu-link"
+              style="background: var(--accent-orange); color: white"
+            >
+              Dreams ▾
+            </label>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="dreamplaces.html">Dream Places</a>
+              </li>
+              <li>
+                <a href="bucketlist.html" class="active">✦ Bucket List</a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="dropdown-parent">
+            <input type="checkbox" id="media-toggle" />
+            <label for="media-toggle" class="menu-link"> Media ▾ </label>
+            <ul class="dropdown-menu">
+              <li><a href="gallery.html">Photos</a></li>
+              <li><a href="music.html">My Beats</a></li>
+              <li><a href="movies.html">My Movies</a></li>
+              <li><a href="series.html">My Series</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="content-wrapper">
+      <div id="top" class="page-header">
+        <h1 class="page-title">My Bucket List</h1>
+        <p class="page-subtitle">
+          A running list of dreams, adventures, and milestones I want to achieve
+          in my lifetime. Always dreaming bigger!
+        </p>
+      </div>
+
+      <section class="bucket-section">
+        <div class="bucket-grid">
+          <!-- Item 1 -->
+          <article class="bucket-card">
+            <div class="card-image">
+              <span class="status-badge">Dreaming</span>
+              <img src="images/bucketlist/aurora.jpg" alt="Northern Lights" />
+            </div>
+            <div class="card-content">
+              <h3 class="bucket-title">See the Northern Lights</h3>
+              <p class="bucket-desc">
+                Traveling to Iceland or Norway in the dead of winter to witness
+                the mesmerizing Aurora Borealis dancing across the night sky.
+              </p>
+            </div>
+          </article>
+
+          <!-- Item 2 -->
+          <article class="bucket-card">
+            <div class="card-image">
+              <span class="status-badge">Planning</span>
+              <img
+                src="images/bucketlist/newjeans.jpg"
+                alt="NewJeans Concert"
+              />
+            </div>
+            <div class="card-content">
+              <h3 class="bucket-title">VIP at a NewJeans Concert</h3>
+              <p class="bucket-desc">
+                Securing barricade or VIP tickets to see my ultimate favorite
+                K-Pop group, NewJeans, perform live and screaming all the
+                fanchants.
+              </p>
+            </div>
+          </article>
+
+          <!-- Item 3 -->
+          <article class="bucket-card">
+            <div class="card-image">
+              <span class="status-badge">Dreaming</span>
+              <img
+                src="images/bucketlist/eurotrip.jpg"
+                alt="Europe Backpacking"
+              />
+            </div>
+            <div class="card-content">
+              <h3 class="bucket-title">Backpack Across Europe</h3>
+              <p class="bucket-desc">
+                Taking a month off to travel by train across my dream
+                destinations: exploring the streets of Amsterdam, romance in
+                Paris, and the history of London.
+              </p>
+            </div>
+          </article>
+
+          <!-- Item 4 -->
+          <article class="bucket-card">
+            <div class="card-image">
+              <span class="status-badge">Dreaming</span>
+              <img src="images/bucketlist/skydiving.jpg" alt="Skydiving" />
+            </div>
+            <div class="card-content">
+              <h3 class="bucket-title">Go Skydiving in Dubai</h3>
+              <p class="bucket-desc">
+                Conquering my fears and feeling the ultimate adrenaline rush by
+                jumping out of a plane over the iconic Palm Jumeirah in Dubai.
+              </p>
+            </div>
+          </article>
+
+          <!-- Item 5 -->
+          <article class="bucket-card">
+            <div class="card-image">
+              <span class="status-badge">In Progress</span>
+              <img
+                src="images/bucketlist/language.jpg"
+                alt="Learn a Language"
+              />
+            </div>
+            <div class="card-content">
+              <h3 class="bucket-title">Master a 3rd Language</h3>
+              <p class="bucket-desc">
+                Becoming fully fluent in either Korean or Japanese so I can
+                watch my favorite shows without subtitles and converse easily
+                while traveling.
+              </p>
+            </div>
+          </article>
+
+          <!-- Item 6 -->
+          <article class="bucket-card">
+            <div class="card-image">
+              <span class="status-badge">Dreaming</span>
+              <img src="images/bucketlist/scuba.jpg" alt="Scuba Diving" />
+            </div>
+            <div class="card-content">
+              <h3 class="bucket-title">Scuba Dive in Palawan</h3>
+              <p class="bucket-desc">
+                Getting my open water diving certification and exploring the
+                breathtaking, colorful coral reefs and shipwrecks in Coron,
+                Palawan.
+              </p>
+            </div>
+          </article>
+
+          <!-- Item 7  -->
+          <article class="bucket-card">
+            <div class="card-image">
+              <span class="status-badge">Dreaming</span>
+              <img src="images/bucketlist/balloon.jpg" alt="Hot Air Balloon" />
+            </div>
+            <div class="card-content">
+              <h3 class="bucket-title">Hot Air Balloon Ride</h3>
+              <p class="bucket-desc">
+                Floating high above the incredible fairy chimneys of Cappadocia
+                at sunrise, surrounded by hundreds of other colorful balloons in
+                the sky.
+              </p>
+            </div>
+          </article>
+
+          <!-- Item 8 -->
+          <article class="bucket-card">
+            <div class="card-image">
+              <span class="status-badge">Planning</span>
+              <img src="images/bucketlist/roadtrip.jpg" alt="Road Trip" />
+            </div>
+            <div class="card-content">
+              <h3 class="bucket-title">Epic Friends Road Trip</h3>
+              <p class="bucket-desc">
+                Renting a van with my inner circle of friends, curating the
+                perfect playlist, and driving cross-country with no fixed
+                destination in mind.
+              </p>
+            </div>
+          </article>
+
+          <!-- Item 9 -->
+          <article class="bucket-card">
+            <div class="card-image">
+              <span class="status-badge">Dreaming</span>
+              <img src="images/bucketlist/ariana.jpg" alt="Meet Ariana" />
+            </div>
+            <div class="card-content">
+              <h3 class="bucket-title">Meet Ariana Grande</h3>
+              <p class="bucket-desc">
+                Attending a meet & greet to finally meet my favorite artist of
+                all time, thank her for the music, and get a picture together.
+              </p>
+            </div>
+          </article>
+
+          <!-- Item 10 -->
+          <article class="bucket-card">
+            <div class="card-image">
+              <span class="status-badge">Dreaming</span>
+              <img
+                src="images/bucketlist/maldives.jpg"
+                alt="Maldives Overwater Villa"
+              />
+            </div>
+            <div class="card-content">
+              <h3 class="bucket-title">Relax in the Maldives</h3>
+              <p class="bucket-desc">
+                Booking an iconic overwater luxury villa in the Maldives, waking
+                up to the sound of the ocean and crystal-clear turquoise waters
+                right at my doorstep.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <!-- Side Navigation -->
+    <nav class="side-anchors">
+      <a href="#top">
+        <img src="images/buttons/topbtn.png" alt="Top" />
+        <span>Back to Top</span>
+      </a>
+    </nav>
+
+    <footer>&copy; 2026 Amir Lopez. All Rights Reserved.</footer>
+  </body>
+</html>

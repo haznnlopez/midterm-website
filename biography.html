@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Biography - Amir Lopez</title>
+
+    <link rel="icon" type="image/png" href="images/hero/logo.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="design.css" />
+
+    <style>
+      .mini-gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 16px;
+        margin: 25px 0 40px;
+      }
+
+      .mini-gallery a {
+        display: block;
+        border-radius: 12px;
+      }
+
+      .mini-gallery img {
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        object-fit: cover;
+
+        border: 1px solid #333;
+        border-radius: 12px;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+
+        cursor: zoom-in;
+        transition:
+          transform 0.35s ease,
+          box-shadow 0.35s ease,
+          filter 0.35s ease;
+      }
+
+      .mini-gallery a:hover img {
+        transform: scale(1.08);
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.65);
+        filter: brightness(1.075);
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <div class="profile-brand">
+        <img
+          src="images/hero/profile-img.png"
+          alt="Amir Lopez"
+          class="profile-pic-small"
+        />
+        <div class="brand-text">
+          <h3>Profile</h3>
+          <span>Amir Jo-hanz Lopez</span>
+        </div>
+      </div>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li class="dropdown-parent">
+            <input type="checkbox" id="stories-toggle" />
+            <label
+              for="stories-toggle"
+              class="menu-link"
+              style="background: var(--accent-orange); color: white"
+            >
+              Stories ▾
+            </label>
+            <ul class="dropdown-menu">
+              <li><a href="biography.html" class="active">✦ Biography</a></li>
+              <li><a href="blog1.html">Blog Story 1</a></li>
+              <li><a href="blog2.html">Blog Story 2</a></li>
+              <li><a href="blog3.html">Blog Story 3</a></li>
+            </ul>
+          </li>
+          <li class="dropdown-parent">
+            <input type="checkbox" id="dream-toggle" />
+            <label for="dream-toggle" class="menu-link"> Dreams ▾ </label>
+            <ul class="dropdown-menu">
+              <li><a href="dreamplaces.html">Dream Places</a></li>
+              <li><a href="bucketlist.html">Bucket List</a></li>
+            </ul>
+          </li>
+          <li class="dropdown-parent">
+            <input type="checkbox" id="media-toggle" />
+            <label for="media-toggle" class="menu-link"> Media ▾ </label>
+            <ul class="dropdown-menu">
+              <li><a href="gallery.html">Photos</a></li>
+              <li><a href="music.html">My Beats</a></li>
+              <li><a href="movies.html">My Movies</a></li>
+              <li><a href="series.html">My Series</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="side-nav right">
+      <a href="blog1.html" class="nav-btn" title="Next Story"> &#8594; </a>
+      <span class="nav-label">Blog Story 1</span>
+    </div>
+
+    <div class="article-wrapper">
+      <article class="article-container" id="top">
+        <div class="article-header">
+          <h1 class="article-title">Trading Stress for Success</h1>
+          <div class="article-meta">By Amir Jo-hanz B. Lopez</div>
+        </div>
+
+        <h3 id="child" class="article-h3">Childhood Years</h3>
+        <div class="mini-gallery">
+          <a href="images/bio/child4.jpg" target="images">
+            <img
+              src="images/bio/child4.jpg"
+              alt="Childhood Photo 1"
+              title="Nutrition Month Celebration"
+            />
+          </a>
+
+          <a href="images/bio/child5.jpg" target="images">
+            <img
+              src="images/bio/child5.jpg"
+              alt="Childhood Photo 2"
+              title="Kulitan at School"
+            />
+          </a>
+
+          <a href="images/bio/child6.jpg" target="images">
+            <img
+              src="images/bio/child6.jpg"
+              alt="Childhood Photo 3"
+              title="Me when Grade 1"
+            />
+          </a>
+        </div>
+
+        <p>
+          Ever since I was a child, I’ve been exposed to the
+          <b>competitive environment</b>. I’ve been joining many competitions
+          and contests which I believed helped create the person I am today. As
+          a child, I never focused on the struggles or hardships of
+          participating; I really found it fun and enjoyable. It also helped
+          that I had a supportive mother who encouraged me to join these
+          contests. When I was in Grade 1, my adviser chose me to join the
+          <b>Math-Raton</b>, a contest that required quick thinking and rapid
+          problem-solving. As a 6-year-old, I was naïve and clueless about the
+          world I was about to enter. I remember staying after class every day
+          just to train. I remember reviewing at school until nightfall. This
+          continued until I reached Grade 6.
+        </p>
+
+        <div class="mini-gallery">
+          <a href="images/bio/child1.jpg" target="images">
+            <img
+              src="images/bio/child1.jpg"
+              alt="Childhood Photo 4"
+              title="Awarding"
+            />
+          </a>
+
+          <a href="images/bio/child2.jpg" target="images">
+            <img
+              src="images/bio/child2.jpg"
+              alt="Childhood Photo 5"
+              title="Bulilit Health Workers Quiz Bee"
+            />
+          </a>
+
+          <a href="images/bio/child3.jpg" target="images">
+            <img
+              src="images/bio/child3.jpg"
+              alt="Childhood Photo 6"
+              title="MTAP Division Level"
+            />
+          </a>
+        </div>
+
+        <p>
+          I never worried about falling behind in classes since my teachers, who
+          were also my coaches, were very lenient. I did not have any problem
+          with my academics; in fact, I was praised by my teachers because,
+          despite my busy schedule, I was still able to submit proper outputs on
+          time. During this period, I achieved many awards. My greatest
+          accomplishments were reaching the National level for the Science Quiz
+          Bee, where I placed 4th, and winning the National Bulilit Health
+          Workers Quiz Bee two years in a row. These competitions brought me not
+          only joy but also took me to places I’d never been before. I remember
+          being amazed by the scenic views in Tagaytay—even while crying because
+          I couldn’t find my mother. I remember the long drive to Pasig while
+          preparing for the contest the next day. These moments were valuable;
+          they are a constant part of me.
+          <b>Ultimately, they were experiences that made me who I am today.</b>
+        </p>
+
+        <h3 id="teen" class="article-h3">Teenage Years</h3>
+        <div class="mini-gallery">
+          <a href="images/bio/teen1.jpg" target="images">
+            <img
+              src="images/bio/teen1.jpg"
+              alt="Teenage Photo 1"
+              title="Grade 7 Section"
+            />
+          </a>
+
+          <a href="images/bio/teen2.png" target="images">
+            <img
+              src="images/bio/teen2.png"
+              alt="Teenage Photo 2"
+              title="Best Dressed as Jeje"
+            />
+          </a>
+
+          <a href="images/bio/teen3.png" target="images">
+            <img src="images/bio/teen3.png" alt="Teenage Photo 3" title=":0" />
+          </a>
+        </div>
+
+        <p>
+          Everything changed dramatically the moment I stepped into high school.
+          I enrolled in the <b>Philippine Science High School (PSHS)</b>, which
+          is full of students with huge potential. I wasn’t bad, but there were
+          schoolmates who were far more superior to me. My past experiences
+          seemed tiny compared to the things my peers had already done. Although
+          I felt a bit down, this gave me a perfect reason to really focus on my
+          academics. However, PSHS’s very advanced classes didn’t make this goal
+          easy at all. We were constantly given huge amounts of schoolwork and
+          activities, which made everything stressful. The stress just got worst
+          when the pandemic started, completely demotivating me. I stopped
+          attending my online classes and kept procrastinating on all my
+          assignments.
+        </p>
+
+        <div class="mini-gallery">
+          <a href="images/bio/teen4.jpg" target="images">
+            <img
+              src="images/bio/teen4.jpg"
+              alt="Teenage Photo 1"
+              title="Grade 7 Section"
+            />
+          </a>
+
+          <a href="images/bio/teen5.jpg" target="images">
+            <img
+              src="images/bio/teen5.jpg"
+              alt="Teenage Photo 2"
+              title="Best Dressed as Jeje"
+            />
+          </a>
+
+          <a href="images/bio/teen6.jpg" target="images">
+            <img src="images/bio/teen6.jpg" alt="Teenage Photo 3" title=":0" />
+          </a>
+        </div>
+
+        <p>
+          This whole period became my worst nightmare as my grades dropped to an
+          all-time low. Thankfully, the pandemic eventually ended, and we could
+          go back to our on-site classes. I finally managed to get back on track
+          again. I started doing well in my subjects and prepared seriously for
+          my college applications. The final part of my high school life was
+          filled with fun times and new friendships. I made sure to enjoy my
+          teenage years fully. The best part was meeting lifelong friends who
+          accepted me as I was. They never judged me based on how smart I was or
+          what I was capable of. I <b>graduated happily</b>, even though I
+          didn’t receive any honors. It was such a refreshing feeling to leave
+          PSHS smiling, finally free from the stressful workload.
+        </p>
+
+        <h3 id="college" class="article-h3">College Years</h3>
+        <div class="mini-gallery">
+          <a href="images/bio/college3.jpg" target="images">
+            <img
+              src="images/bio/college3.jpg"
+              alt="College Photo 1"
+              title="Me with Friends"
+            />
+          </a>
+
+          <a href="images/bio/college4.jpg" target="images">
+            <img
+              src="images/bio/college4.jpg"
+              alt="College Photo 2"
+              title="Me with Friends Part 2"
+            />
+          </a>
+
+          <a href="images/bio/college6.jpg" target="images">
+            <img
+              src="images/bio/college5.jpg"
+              alt="College Photo 3"
+              title="UP Fair with my boyfriend"
+            />
+          </a>
+        </div>
+
+        <p>
+          They often say that
+          <b>the end of one thing marks the exciting start of something new</b>.
+          Entering college truly brought a huge surge of both excitement and
+          genuine fear for me. College is frequently described as the place
+          where the real and serious challenges begin. However, I felt like my
+          challenge started before I officially enrolled in any university.
+          Despite dedicating huge amounts of time preparing for applications to
+          different schools, my efforts were ultimately not enough. I couldn’t
+          secure admission into the few dream schools I had initially targeted.
+          In a moment of high pressure, I ended up enrolling at the
+          <b>University of the East (UE)</b> as a last-minute decision.
+        </p>
+
+        <div class="mini-gallery">
+          <a href="images/bio/college6.jpg" target="images">
+            <img
+              src="images/bio/college6.jpg"
+              alt="College Photo 1"
+              title="Auditioning to UEDC"
+            />
+          </a>
+
+          <a href="images/bio/college1.jpg" target="images">
+            <img
+              src="images/bio/college1.jpg"
+              alt="College Photo 2"
+              title="Tagisan ng Talino"
+            />
+          </a>
+
+          <a href="images/bio/college2.jpg" target="images">
+            <img
+              src="images/bio/college2.jpg"
+              alt="College Photo 3"
+              title="CCSS Blockmates"
+            />
+          </a>
+        </div>
+
+        <p>
+          Now, looking back as time passes, I really believe that it was my fate
+          to end up here. So far, I can honestly say I am thoroughly enjoying my
+          overall stay at UE. I have met a number of great people who became
+          excellent friends and mentors. I am also finding genuine success in
+          various academic subjects and courses. Furthermore, I am starting to
+          gain recognition by participating in different competitions. In a way,
+          my competitive nature, which was muted in high school, has been fully
+          rekindled. It is true that navigating college may seem scary and
+          overwhelming. Thankfully, my previous difficult experiences helped me
+          prepare for this new phase. The resilience I gained allows me to
+          handle the increased academic pressures. I know I can succeed because
+          I learned how to bounce back from difficult times before. The
+          University of the East is turning out to be the perfect environment
+          for me to grow as a student, and as a professional.
+          <b
+            >It feels like a fresh, successful chapter is now unfolding in my
+            life.</b
+          >
+        </p>
+      </article>
+
+      <div class="rating-section">
+        <h3 class="end-text">Rate my blog!</h3>
+        <div class="css-star-rating">
+          <input type="radio" id="star5" name="blog-rating" value="5" />
+          <label for="star5" title="5 stars">★</label>
+
+          <input type="radio" id="star4" name="blog-rating" value="4" />
+          <label for="star4" title="4 stars">★</label>
+
+          <input type="radio" id="star3" name="blog-rating" value="3" />
+          <label for="star3" title="3 stars">★</label>
+
+          <input type="radio" id="star2" name="blog-rating" value="2" />
+          <label for="star2" title="2 stars">★</label>
+
+          <input type="radio" id="star1" name="blog-rating" value="1" />
+          <label for="star1" title="1 star">★</label>
+        </div>
+      </div>
+
+      <nav class="side-anchors">
+        <a href="#top">
+          <img src="images/buttons/topbtn.png" alt="Top" />
+          <span>Back to Top</span>
+        </a>
+        <a href="#child">
+          <span>Childhood Years</span>
+        </a>
+        <a href="#teen">
+          <span>Teenage Years</span>
+        </a>
+        <a href="#college">
+          <span>College Years</span>
+        </a>
+      </nav>
+    </div>
+
+    <footer>&copy; 2026 Amir Lopez. All Rights Reserved.</footer>
+  </body>
+</html>

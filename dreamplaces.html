@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dream Places - Amir Lopez</title>
+
+    <link rel="icon" type="image/png" href="images/hero/logo.png" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="design.css" />
+
+    <style>
+      /* Page specific styles */
+      .page-header {
+        text-align: center;
+        margin-top: 50px;
+        margin-bottom: 40px;
+        padding: 0 20px;
+      }
+
+      .page-title {
+        font-family: var(--font-heading);
+        font-size: 3rem;
+        color: var(--accent-orange);
+        margin-bottom: 15px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      }
+
+      .page-subtitle {
+        font-family: var(--font-body);
+        font-size: 1.1rem;
+        color: var(--text-grey);
+        max-width: 600px;
+        margin: -20px auto;
+        line-height: 1.6;
+        text-align: center;
+      }
+
+      /* Image Map Section */
+      .map-section {
+        background-color: var(--bg-card);
+        border: 1px solid #333;
+        border-radius: 20px;
+        padding: 30px;
+        margin-top: 80px;
+        overflow-x: auto;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        width: 1100px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 100px;
+      }
+
+      .map-wrapper {
+        position: relative;
+        width: 960px;
+        height: 540px;
+        margin: 0 auto;
+        cursor: not-allowed;
+      }
+
+      .map-wrapper img {
+        width: 960px;
+        height: 540px;
+        opacity: 1;
+        border-radius: 10px;
+        transition: opacity 0.3s ease;
+      }
+
+      area {
+        outline: none;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <!-- Profile Logo / Brand -->
+      <div class="profile-brand">
+        <img
+          src="images/hero/profile-img.png"
+          alt="Profile"
+          class="profile-pic-small"
+        />
+        <div class="brand-text">
+          <h3>Profile</h3>
+          <span>Amir Jo-hanz Lopez</span>
+        </div>
+      </div>
+
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+
+          <li class="dropdown-parent">
+            <input type="checkbox" id="stories-toggle" />
+            <label for="stories-toggle" class="menu-link"> Stories ▾ </label>
+            <ul class="dropdown-menu">
+              <li><a href="biography.html">Biography</a></li>
+              <li><a href="blog1.html">Blog Story 1</a></li>
+              <li><a href="blog2.html">Blog Story 2</a></li>
+              <li><a href="blog3.html">Blog Story 3</a></li>
+            </ul>
+          </li>
+
+          <li class="dropdown-parent">
+            <input type="checkbox" id="dream-toggle" />
+            <label
+              for="dream-toggle"
+              class="menu-link"
+              style="background: var(--accent-orange); color: white"
+            >
+              Dreams ▾
+            </label>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="dreamplaces.html" class="active">✦ Dream Places</a>
+              </li>
+              <li><a href="bucketlist.html">Bucket List</a></li>
+            </ul>
+          </li>
+
+          <li class="dropdown-parent">
+            <input type="checkbox" id="media-toggle" />
+            <label for="media-toggle" class="menu-link"> Media ▾ </label>
+            <ul class="dropdown-menu">
+              <li><a href="gallery.html">Photos</a></li>
+              <li><a href="music.html">My Beats</a></li>
+              <li><a href="movies.html">My Movies</a></li>
+              <li><a href="series.html">My Series</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="content-wrapper">
+      <div id="top" class="page-header">
+        <h1 class="page-title">Dream Places</h1>
+        <p class="page-subtitle">
+          An interactive map of the top five destinations I want to visit
+          someday. Hover over the regions to see their names and click to
+          explore!
+        </p>
+      </div>
+
+      <!-- IMAGE MAP SECTION -->
+      <section class="map-section">
+        <div class="map-wrapper">
+          <img
+            src="images/places/img.jpg"
+            usemap="#image-map"
+            alt="Custom Shapes Map"
+          />
+          <map name="image-map">
+            <area
+              alt="Amsterdam, Netherlands"
+              title="Amsterdam, Netherlands"
+              href="amsterdam.html"
+              coords="710,130,952,346"
+              shape="rect"
+            />
+            <area
+              alt="New York City, USA"
+              title="New York City, USA"
+              href="newyork.html"
+              coords="146,143,88"
+              shape="circle"
+            />
+            <area
+              alt="Paris, France"
+              title="Paris, France"
+              href="paris.html"
+              coords="579,315,536,513,622,512"
+              shape="poly"
+            />
+            <area
+              alt="Seoul"
+              title="Seoul, South Korea"
+              href="seoul.html"
+              coords="511,59,499,231,538,230,527,60"
+              shape="poly"
+            />
+            <area
+              alt="London, UK"
+              title="London, UK"
+              href="london.html"
+              coords="111,339,134,329,154,341,157,371,285,370,291,331,311,319,329,339,329,463,288,464,285,381,155,387,154,454,106,455"
+              shape="poly"
+            />
+          </map>
+        </div>
+      </section>
+    </main>
+
+    <footer>&copy; 2026 Amir Lopez. All Rights Reserved.</footer>
+  </body>
+</html>

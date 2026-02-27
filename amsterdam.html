@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Amsterdam - Amir Lopez</title>
+
+    <link rel="icon" type="image/png" href="images/hero/logo.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="design.css" />
+
+    <style>
+      .content-wrapper {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 60px 20px 80px;
+      }
+      .place-section {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        background: var(--bg-card);
+        padding: 40px;
+        border-radius: 20px;
+        border: 1px solid #333;
+        margin-top: 40px;
+      }
+      .place-info {
+        flex: 1;
+      }
+      .place-title {
+        font-family: var(--font-heading);
+        font-size: 2.5rem;
+        color: var(--accent-orange);
+        margin-bottom: 15px;
+        line-height: 1.1;
+      }
+      .place-desc {
+        font-size: 1rem;
+        color: var(--text-grey);
+        line-height: 1.6;
+        margin-bottom: 20px;
+      }
+      .place-gallery {
+        flex: 1;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+      }
+      .place-gallery img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        border-radius: 12px;
+        transition: transform 0.3s ease;
+      }
+      .place-gallery img:hover {
+        transform: scale(1.02);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="profile-brand">
+        <img
+          src="images/hero/profile-img.png"
+          alt="Profile"
+          class="profile-pic-small"
+        />
+        <div class="brand-text">
+          <h3>Profile</h3>
+          <span>Amir Jo-hanz Lopez</span>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+
+          <li class="dropdown-parent">
+            <input type="checkbox" id="stories-toggle" />
+            <label for="stories-toggle" class="menu-link"> Stories ▾ </label>
+            <ul class="dropdown-menu">
+              <li><a href="biography.html">Biography</a></li>
+              <li><a href="blog1.html">Blog Story 1</a></li>
+              <li><a href="blog2.html">Blog Story 2</a></li>
+              <li><a href="blog3.html">Blog Story 3</a></li>
+            </ul>
+          </li>
+
+          <li class="dropdown-parent">
+            <input type="checkbox" id="dream-toggle" />
+            <label
+              for="dream-toggle"
+              class="menu-link"
+              style="background: var(--accent-orange); color: white"
+            >
+              Dreams ▾
+            </label>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="dreamplaces.html" class="active">✦ Dream Places</a>
+              </li>
+              <li><a href="bucketlist.html">Bucket List</a></li>
+            </ul>
+          </li>
+
+          <li class="dropdown-parent">
+            <input type="checkbox" id="media-toggle" />
+            <label for="media-toggle" class="menu-link"> Media ▾ </label>
+            <ul class="dropdown-menu">
+              <li><a href="gallery.html">Photos</a></li>
+              <li><a href="music.html">My Beats</a></li>
+              <li><a href="movies.html">My Movies</a></li>
+              <li><a href="series.html">My Series</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="side-nav left">
+      <a href="dreamplaces.html" class="nav-btn">&#8592;</a>
+      <span class="nav-label">Back to Map</span>
+    </div>
+
+    <main class="content-wrapper">
+      <section class="place-section">
+        <div class="place-info">
+          <h1 class="place-title">Amsterdam, Netherlands</h1>
+          <p class="place-desc">
+            I need to be in Amsterdam because I’m tired of life feeling like a
+            straight line when it should feel like a winding, emerald-colored
+            canal. I want to be the one pedaling a vintage bicycle over a
+            cobblestone bridge at sunrise, the "cling-cling" of my bell echoing
+            against 17th-century tilted houses that look like they were pulled
+            straight from a storybook. I’m desperate to lose myself in the
+            Jordaan, ducking into a candlelit "Brown Café" where the walls are
+            stained with centuries of secrets and the air smells like spiced
+            apple pie and roasted coffee. I need to stand in the Rijksmuseum,
+            face-to-face with the massive, moody genius of Rembrandt’s Night
+            Watch, and then feel the world tilt as I swing out over the city’s
+            edge at the A’DAM Lookout. I want to glide through the water on a
+            wooden boat at twilight, watching the bridges light up like strings
+            of pearls reflecting in the ripples. I need to walk through the
+            silent, hallowed halls of the Anne Frank House to remember what
+            matters, and then find myself surrounded by a million blooming
+            tulips that prove life is a riot of color. I don't just want a
+            vacation; I need to breathe in the freedom, the art, and the
+            gezelligheid—that cozy, golden Dutch magic—until I finally
+            understand what it’s like to live in a city that turned water into a
+            masterpiece.
+          </p>
+        </div>
+        <div class="place-gallery">
+          <a href="images/places/amster1.jpg" target="images">
+            <img
+              src="images/places/amster1.jpg"
+              alt="Emerald Canals"
+              title="Emerald Canals"
+            />
+          </a>
+          <a href="images/places/amster2.jpg" target="images">
+            <img
+              src="images/places/amster2.jpg"
+              alt="Amsterdam 17th-century Houses"
+              title="Amsterdam 17th-century Houses"
+            />
+          </a>
+          <a href="images/places/amster3.jpg" target="images">
+            <img
+              src="images/places/amster3.jpg"
+              alt="Brown Cafés in Jordaan"
+              title="Brown Cafés in Jordaan"
+            />
+          </a>
+          <a href="images/places/amster4.jpg" target="images">
+            <img
+              src="images/places/amster4.jpg"
+              alt="Rijksmuseum"
+              title="Rijksmuseum"
+            />
+          </a>
+          <a href="images/places/amster5.jpg" target="images">
+            <img
+              src="images/places/amster5.jpg"
+              alt="A'DAM Lookout"
+              title="A'DAM Lookout"
+            />
+          </a>
+          <a href="images/places/amster6.jpg" target="images">
+            <img
+              src="images/places/amster6.jpg"
+              alt="Anne Frank House"
+              title="Anne Frank House"
+            />
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer>&copy; 2026 Amir Lopez. All Rights Reserved.</footer>
+  </body>
+</html>
